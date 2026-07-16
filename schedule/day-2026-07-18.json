@@ -414,7 +414,8 @@
               "ownerRaw": "法輝\n法偉",
               "signal": null,
               "note": "舊禪堂人多，AC可以根據實際情況調整得更低一些",
-              "display": "step"
+              "display": "step",
+              "stepAction": "呼班\n大眾起立/all rise\n對面排班，face the center aisle  合掌 palms together\n恭請教授法師 We sincerely invite the dharma master enter the library\n轉身向上 Face the front\n至誠向教授法師三問訊 Three half bows to the dharma master\n大眾就座 Please be seated. \n大眾起立/all rise\n禮謝教授法師慈悲開示，大眾至誠三問訊。We sincerely thank the dharma master with three half-bows.\n對面排班，face the center aisle  合掌 palms together\n恭送教授法師 We sincerely escort the dharma master."
             },
             {
               "id": "d1-tp-05-t3",

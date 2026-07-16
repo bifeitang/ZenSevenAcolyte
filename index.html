@@ -161,7 +161,10 @@
                 <div class="section-title" x-text="'【' + section.title + '】'"></div>
 
                 <template x-for="timePoint in section.timePoints" :key="timePoint.id">
-                  <div class="tp-card" :class="{ 'is-bell': timePoint.isBellRow }">
+                  <div
+                    class="tp-card"
+                    :class="{ 'is-bell': timePoint.isBellRow, 'has-steps': timePoint.tasks.some(t => t.display === 'step') }"
+                  >
                     <div class="tp-time">
                       <div
                         class="time-badge"

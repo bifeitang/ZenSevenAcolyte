@@ -182,11 +182,24 @@ function copyIfExists(srcRel, destRel) {
   return true;
 }
 
-function copyAppShell() {
+function copyAppShell(scheduleVersion) {
   copyIfExists('index.html', 'index.html');
   copyIfExists('manifest.webmanifest', 'manifest.webmanifest');
-  copyIfExists('sw.js', 'sw.js');
   copyIfExists('assets', 'assets');
+  // sw.js：把 CACHE_NAME 蓋上 scheduleVersion，每次改版自動汰換舊快取
+  // （否則手機會拿到「新 HTML + 舊 CSS」的混搭，樣式全失效）
+  const swSrc = path.join(ROOT, 'sw.js');
+  if (existsSync(swSrc)) {
+    const stamp = String(scheduleVersion).replace(/[^0-9A-Za-z]/g, '');
+    const sw = readFileSync(swSrc, 'utf8').replace(
+      /const CACHE_NAME = "[^"]*";/,
+      `const CACHE_NAME = "chan7-${stamp}";`
+    );
+    writeFileSync(path.join(PUBLIC_DIR, 'sw.js'), sw);
+    log(`已產生 public/sw.js（CACHE_NAME=chan7-${stamp}）`);
+  } else {
+    warn('找不到 sw.js，略過');
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -220,7 +233,7 @@ function main() {
 
   // 3. 複製 app shell
   log('複製 app shell …');
-  copyAppShell();
+  copyAppShell(meta.scheduleVersion);
 
   // 4. 產生 retreat.ics
   log('產生 retreat.ics …');

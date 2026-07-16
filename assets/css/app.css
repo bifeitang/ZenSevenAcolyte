@@ -94,6 +94,13 @@ input {
   color: inherit;
 }
 
+/* iOS Safari 會給 button 畫原生藥丸外觀＋置中文字，全域重置 */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: inherit;
+}
+
 .app-shell {
   max-width: 640px;
   margin: 0 auto;
@@ -433,6 +440,27 @@ input {
   width: 64px;
   padding-top: 2px;
   text-align: left;
+}
+
+/* 含流程步驟的卡片：時間改為標題列，步驟吃滿整寬（行動裝置空間優先） */
+.tp-card.has-steps {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tp-card.has-steps .tp-time {
+  width: auto;
+  padding-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.tp-card.has-steps .tp-period {
+  margin-top: 0;
+  font-size: 12px;
 }
 
 .time-badge {

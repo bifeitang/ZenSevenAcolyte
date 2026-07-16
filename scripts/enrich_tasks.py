@@ -23,6 +23,9 @@ OVERRIDES = {
     "d2-tp-29-t1": "checklist",  # 藥石時段：開門/打掃/平灰 檢核清單
 }
 
+# 這些任務的顯示文字按「｜」分段換行（每句口令獨立一行）
+PARAGRAPH_SPLIT_IDS = {"d1-tp-05-t2"}
+
 # 法會/流程情境（比對 section 標題 + periodLabel）
 CEREMONY_KEYS = [
     "灑淨", "起七", "晚課", "早課", "解七", "施食", "起香", "基本行儀",
@@ -158,6 +161,9 @@ def enrich_day(path: Path):
                     if cue:
                         task["cue"] = cue
                         task["stepAction"] = rest
+                    if task["id"] in PARAGRAPH_SPLIT_IDS:
+                        text = task.get("stepAction") or a
+                        task["stepAction"] = re.sub(r"\s*[｜|]\s*", "\n", text)
                     stats["step"] += 1
                     continue
                 stats["simple"] += 1
