@@ -16,6 +16,7 @@ const FIREBASE_SDK_VERSION = "11.6.1";
 const GSTATIC_BASE = `https://www.gstatic.com/firebasejs/${FIREBASE_SDK_VERSION}`;
 
 const LOCAL_STORAGE_KEY = "chan7.checks";
+const LOCAL_EDITS_KEY = "chan7.edits";
 
 const IDENTITIES = ["fahui", "fawei"];
 
@@ -39,24 +40,27 @@ class LocalBackend {
   constructor() {
     this._onChecksChanged = null;
     this._onStatusChanged = null;
+    this._onEditsChanged = null;
     this._storageListener = null;
   }
 
-  async init({ onChecksChanged, onStatusChanged }) {
+  async init({ onChecksChanged, onStatusChanged, onEditsChanged }) {
     this._onChecksChanged = onChecksChanged;
     this._onStatusChanged = onStatusChanged;
+    this._onEditsChanged = onEditsChanged;
 
     // 同瀏覽器的「其他」分頁修改 localStorage 時會收到 storage 事件；
     // 目前分頁自己寫入不會觸發 storage 事件，因此 toggleCheck() 內會手動 emit。
     this._storageListener = (event) => {
-      if (event.key !== LOCAL_STORAGE_KEY) return;
-      this._emit();
+      if (event.key === LOCAL_STORAGE_KEY) this._emit();
+      if (event.key === LOCAL_EDITS_KEY) this._emitEdits();
     };
     if (typeof window !== "undefined" && window.addEventListener) {
       window.addEventListener("storage", this._storageListener);
     }
 
     this._emit();
+    this._emitEdits();
     this._onStatusChanged?.("local");
   }
 
@@ -94,6 +98,33 @@ class LocalBackend {
     this._emit();
     this._onStatusChanged?.("local");
   }
+
+  _readEdits() {
+    try {
+      const raw = localStorage.getItem(LOCAL_EDITS_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  _emitEdits() {
+    this._onEditsChanged?.(this._readEdits());
+  }
+
+  async saveEdit(editId, payload) {
+    const edits = this._readEdits();
+    edits[editId] = payload;
+    localStorage.setItem(LOCAL_EDITS_KEY, JSON.stringify(edits));
+    this._emitEdits();
+  }
+
+  async deleteEdit(editId) {
+    const edits = this._readEdits();
+    delete edits[editId];
+    localStorage.setItem(LOCAL_EDITS_KEY, JSON.stringify(edits));
+    this._emitEdits();
+  }
 }
 
 // ────────────────────────────────────────────────────────────────
@@ -110,10 +141,11 @@ class FirestoreBackend {
     this._unsubscribe = null;
   }
 
-  async init({ retreatId, identity, onChecksChanged, onStatusChanged }) {
+  async init({ retreatId, identity, onChecksChanged, onStatusChanged, onEditsChanged }) {
     this._retreatId = retreatId;
     this._onChecksChanged = onChecksChanged;
     this._onStatusChanged = onStatusChanged;
+    this._onEditsChanged = onEditsChanged;
 
     this._onStatusChanged?.("pending");
 
@@ -140,11 +172,12 @@ class FirestoreBackend {
       collection,
       doc,
       setDoc,
+      deleteDoc,
       onSnapshot,
       serverTimestamp,
     } = fsApi;
 
-    this._fs = { doc, setDoc, serverTimestamp };
+    this._fs = { doc, setDoc, deleteDoc, serverTimestamp };
 
     const app = initializeApp(firebaseConfig);
 
@@ -211,6 +244,36 @@ class FirestoreBackend {
         this._onStatusChanged?.("offline");
       }
     );
+
+    // 內容修改（編輯模式）：retreats/{id}/edits/{editId}
+    const editsCol = collection(this._db, "retreats", this._retreatId, "edits");
+    this._unsubscribeEdits = onSnapshot(
+      editsCol,
+      (snapshot) => {
+        const editsMap = {};
+        snapshot.forEach((docSnap) => {
+          editsMap[docSnap.id] = docSnap.data();
+        });
+        this._onEditsChanged?.(editsMap);
+      },
+      (err) => {
+        // 規則尚未開放 edits collection 時會 permission-denied：僅記錄，不影響勾選同步
+        console.warn("[firestore-sync] edits onSnapshot 錯誤（編輯同步未生效）", err);
+      }
+    );
+  }
+
+  async saveEdit(editId, payload) {
+    if (!this._db) throw new Error("[firestore-sync] Firestore 尚未初始化");
+    const { doc, setDoc, serverTimestamp } = this._fs;
+    const ref = doc(this._db, "retreats", this._retreatId, "edits", editId);
+    await setDoc(ref, { ...payload, updatedAt: serverTimestamp() });
+  }
+
+  async deleteEdit(editId) {
+    if (!this._db) throw new Error("[firestore-sync] Firestore 尚未初始化");
+    const { doc, deleteDoc } = this._fs;
+    await deleteDoc(doc(this._db, "retreats", this._retreatId, "edits", editId));
   }
 
   async toggleCheck(taskId, identity, checked) {
@@ -247,9 +310,9 @@ class FirestoreBackend {
 
 let _backend = null;
 
-export async function initSync({ retreatId, identity, onChecksChanged, onStatusChanged }) {
+export async function initSync({ retreatId, identity, onChecksChanged, onStatusChanged, onEditsChanged }) {
   _backend = firebaseConfig ? new FirestoreBackend() : new LocalBackend();
-  await _backend.init({ retreatId, identity, onChecksChanged, onStatusChanged });
+  await _backend.init({ retreatId, identity, onChecksChanged, onStatusChanged, onEditsChanged });
   return _backend;
 }
 
@@ -258,6 +321,17 @@ export async function toggleCheck(taskId, identity, checked) {
     throw new Error("[firestore-sync] 尚未呼叫 initSync()，無法 toggleCheck()");
   }
   return _backend.toggleCheck(taskId, identity, checked);
+}
+
+// 內容修改（編輯模式）：payload = { targetId, kind: 'task-patch'|'task-add'|'tp-patch', data, updatedBy }
+export async function saveEdit(editId, payload) {
+  if (!_backend) throw new Error("[firestore-sync] 尚未呼叫 initSync()");
+  return _backend.saveEdit(editId, payload);
+}
+
+export async function deleteEdit(editId) {
+  if (!_backend) throw new Error("[firestore-sync] 尚未呼叫 initSync()");
+  return _backend.deleteEdit(editId);
 }
 
 // 供測試使用（非公開契約的一部分，app.js 不應依賴這個 export）。

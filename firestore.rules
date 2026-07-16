@@ -10,5 +10,14 @@ service cloud.firestore {
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['checkedBy','updatedAt']);
       allow delete: if false;
     }
+
+    // 編輯模式：兩位心燈可在 App 內直接修改流程內容並即時同步
+    match /retreats/chan7-2026/edits/{editId} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && request.resource.data.keys().hasOnly(['targetId','kind','data','updatedBy','updatedAt'])
+        && request.resource.data.kind in ['task-patch','task-add','tp-patch'];
+      allow delete: if request.auth != null;   // 「還原原始內容」需要刪除編輯 doc
+    }
   }
 }

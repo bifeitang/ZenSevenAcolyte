@@ -186,10 +186,18 @@
                     <div class="tp-time">
                       <div
                         class="time-badge"
-                        :class="{ approx: timeBadge(timePoint).approx }"
+                        :class="{ approx: timeBadge(timePoint).approx, 'is-edited': timePoint._edited }"
                         x-text="(timePoint.isBellRow ? '🔔 ' : '') + timeBadge(timePoint).text"
                       ></div>
                       <div class="tp-period" x-show="timePoint.periodLabel" x-text="timePoint.periodLabel"></div>
+                      <button
+                        type="button"
+                        class="task-edit-btn tp-time-edit"
+                        x-show="editMode && timePoint.time.kind !== 'fuzzy'"
+                        x-cloak
+                        aria-label="修改時間"
+                        @click="openTimeEditor(timePoint)"
+                      >✎</button>
                     </div>
 
                     <div class="tp-tasks">
@@ -199,6 +207,7 @@
                           <div class="step-no" x-show="task.display === 'step'" x-text="stepNo(timePoint, ti)"></div>
 
                           <div class="task-body">
+                            <span class="edited-badge" x-show="task._edited" x-cloak x-text="task._added ? '新增' : '已修改'"></span>
                             <div class="owner-chips" x-show="ownerChips(task).length">
                               <template x-for="chip in ownerChips(task)" :key="chip.key">
                                 <span
@@ -263,8 +272,25 @@
                               @click="toggleTask(task.id)"
                             ></button>
                           </div>
+
+                          <button
+                            type="button"
+                            class="task-edit-btn"
+                            x-show="editMode"
+                            x-cloak
+                            aria-label="編輯任務"
+                            @click="openTaskEditor(task, timePoint)"
+                          >✎</button>
                         </div>
                       </template>
+
+                      <button
+                        type="button"
+                        class="task-add-btn"
+                        x-show="editMode"
+                        x-cloak
+                        @click="openAddEditor(timePoint)"
+                      >＋ 新增任務</button>
                     </div>
                   </div>
                 </template>
@@ -314,6 +340,29 @@
             </div>
 
             <div class="drawer-section">
+              <h3>編輯模式</h3>
+              <button
+                type="button"
+                class="drawer-btn"
+                :class="{ active: editMode }"
+                @click="editMode = !editMode"
+                x-text="editMode ? '編輯模式：開　（點擊關閉）' : '編輯模式：關　（點擊開啟）'"
+              ></button>
+              <p class="drawer-meta">
+                開啟後：任務旁出現 ✎ 可修改內容／負責人／隱藏任務；時間點可改時間、可新增任務。
+                修改會即時同步到兩台手機。注意：修改「時間」後 App 內顯示立即更新，
+                但已訂閱的行事曆鬧鈴需重新部署才會跟著改。
+              </p>
+              <button
+                type="button"
+                class="drawer-btn"
+                x-show="editMode && hiddenTaskCount > 0"
+                @click="unhideAllTasks()"
+                x-text="'還原 ' + hiddenTaskCount + ' 個已隱藏的任務'"
+              ></button>
+            </div>
+
+            <div class="drawer-section">
               <h3>版本資訊</h3>
               <div class="drawer-meta">
                 <div x-show="meta">流程版本：<span x-text="meta?.scheduleVersion"></span></div>
@@ -322,6 +371,77 @@
               </div>
             </div>
           </aside>
+        </div>
+      </template>
+
+      <!-- ============ 編輯視窗 ============ -->
+      <template x-if="editor">
+        <div>
+          <div class="drawer-overlay" @click="editor = null"></div>
+          <div class="edit-modal">
+            <h2
+              x-text="editor.kind === 'add' ? '新增任務' : editor.kind === 'time' ? '修改時間' : (editor.isAdded ? '編輯新增的任務' : '編輯任務')"
+            ></h2>
+
+            <template x-if="editor.kind === 'time'">
+              <div class="edit-fields">
+                <label>時間（24 小時制 HH:MM）</label>
+                <input type="text" inputmode="numeric" placeholder="14:00" x-model="editor.timeValue" />
+                <p class="edit-hint">
+                  ⚠️ App 內的倒數與收合會立即依新時間更新；但已訂閱的行事曆鬧鈴仍是舊時間，
+                  需重新部署才會更新。
+                </p>
+              </div>
+            </template>
+
+            <template x-if="editor.kind !== 'time'">
+              <div class="edit-fields">
+                <label>動作 / 內容</label>
+                <textarea rows="5" x-model="editor.action"></textarea>
+                <label>備註（選填）</label>
+                <textarea rows="2" x-model="editor.note"></textarea>
+                <label>信號（選填）</label>
+                <input type="text" x-model="editor.signal" />
+                <label>負責人</label>
+                <div class="edit-owners">
+                  <template x-for="(o, key) in meta?.owners ?? {}" :key="key">
+                    <button
+                      type="button"
+                      class="edit-owner-btn"
+                      :class="{ active: editor.owners.includes(key) }"
+                      :style="'--chip-color:' + o.color"
+                      @click="toggleEditorOwner(key)"
+                      x-text="o.displayName"
+                    ></button>
+                  </template>
+                </div>
+              </div>
+            </template>
+
+            <div class="edit-actions">
+              <button type="button" class="edit-save" @click="saveEditor()">儲存</button>
+              <button
+                type="button"
+                class="edit-danger"
+                x-show="editor.kind === 'task' && !editor.isAdded"
+                @click="hideEditorTask()"
+              >
+                隱藏此任務
+              </button>
+              <button
+                type="button"
+                class="edit-danger"
+                x-show="editor.kind === 'task' && editor.isAdded"
+                @click="hideEditorTask()"
+              >
+                刪除此任務
+              </button>
+              <button type="button" x-show="editor.isEdited && !editor.isAdded" @click="revertEditor()">
+                還原原始內容
+              </button>
+              <button type="button" @click="editor = null">取消</button>
+            </div>
+          </div>
         </div>
       </template>
     </div>

@@ -4,7 +4,33 @@
 
 import * as resolve from "./resolve.js";
 import { checkPin, isUnlocked, setUnlocked } from "./pin-gate.js";
-import { initSync, toggleCheck as syncToggleCheck } from "./firestore-sync.js";
+import { initSync, toggleCheck as syncToggleCheck, saveEdit, deleteEdit } from "./firestore-sync.js";
+
+// 編輯清單任務時，把文字重新拆成 items（鏡射 scripts/enrich_tasks.py 的簡化版規則）
+function clientSplitItems(action) {
+  const items = [];
+  let n = 0;
+  for (const rawline of (action ?? "").split(/[\n；;。]/)) {
+    let line = rawline.trim().replace(/^[，,\s]+|[，,\s]+$/g, "");
+    if (!line) continue;
+    let group = null;
+    const m = line.match(/^(新禪堂|舊禪堂|圖書館|齋堂|二樓|物料|其他)：\s*(.*)$/);
+    if (m) {
+      group = m[1];
+      line = m[2].trim();
+      if (!line) continue;
+    }
+    let parts = line.split("、").map((p) => p.trim()).filter(Boolean);
+    if (parts.length === 1 && (line.match(/，/g) ?? []).length >= 2) {
+      parts = line.split("，").map((p) => p.trim()).filter(Boolean);
+    }
+    for (const text of parts) {
+      n += 1;
+      items.push({ id: `i${n}`, group, text });
+    }
+  }
+  return items;
+}
 
 const IDENTITY_KEY = "chan7.identity";
 const VERSION_KEY = "chan7.scheduleVersion";
@@ -49,6 +75,10 @@ function chan7App() {
     pinInput: "",
     pinError: false,
     showPast: false,
+    editMode: false,
+    edits: {},
+    _rawDays: null,
+    editor: null, // { kind:'task'|'add'|'time', tpId, taskId, action, note, signal, owners[], timeValue, isEdited }
     loadError: false,
     updateAvailable: false,
     settingsOpen: false,
@@ -91,7 +121,8 @@ function chan7App() {
         this.meta = data.meta;
         this.fixedActions = data.fixedActions ?? [];
         this.prepChecklist = data.prepChecklist ?? [];
-        this.days = data.days ?? [];
+        this._rawDays = data.days ?? [];
+        this.applyEdits();
         this.loadError = false;
 
         let cachedVersion = null;
@@ -175,10 +206,229 @@ function chan7App() {
         onStatusChanged: (status) => {
           this.syncStatus = status;
         },
+        onEditsChanged: (editsMap) => {
+          this.edits = editsMap ?? {};
+          this.applyEdits();
+        },
       }).catch((err) => {
         console.error("[chan7] initSync 失敗", err);
         this.syncStatus = "offline";
       });
+    },
+
+    // ---------- 編輯模式 ----------
+
+    // 把 edits（Firestore 同步的內容修改）套用到原始流程上，產生顯示用的 days
+    applyEdits() {
+      if (!this._rawDays) return;
+      const days = JSON.parse(JSON.stringify(this._rawDays));
+      const edits = this.edits ?? {};
+      for (const day of days) {
+        for (const section of day.sections) {
+          for (const tp of section.timePoints) {
+            const tpEdit = edits[tp.id];
+            if (tpEdit?.kind === "tp-patch" && tpEdit.data) {
+              if (tpEdit.data.timeValue) tp.time.value = tpEdit.data.timeValue;
+              tp._edited = true;
+            }
+            tp.tasks = tp.tasks.flatMap((task) => {
+              const e = edits[task.id];
+              if (!e || e.kind !== "task-patch") return [task];
+              if (e.data?.hidden) return [];
+              const nt = { ...task, _edited: true };
+              for (const f of ["action", "note", "signal", "owners"]) {
+                if (e.data?.[f] !== undefined) nt[f] = e.data[f];
+              }
+              if (e.data?.action !== undefined) {
+                // 內容改了：清單重拆項目；步驟丟棄舊 cue（顯示完整新文字）
+                if (nt.display === "checklist") nt.items = clientSplitItems(nt.action);
+                if (nt.display === "step") {
+                  delete nt.cue;
+                  delete nt.stepAction;
+                }
+              }
+              return [nt];
+            });
+            // 新增的任務（附加在該時間點末尾）
+            const adds = Object.values(edits)
+              .filter((e) => e.kind === "task-add" && e.data?.tpId === tp.id)
+              .sort((a, b) => (a.targetId < b.targetId ? -1 : 1));
+            for (const a of adds) {
+              tp.tasks.push({
+                id: a.targetId,
+                action: a.data.action ?? "",
+                owners: a.data.owners ?? [],
+                ownerRaw: "",
+                templateRef: null,
+                signal: a.data.signal ?? null,
+                note: a.data.note ?? null,
+                _edited: true,
+                _added: true,
+              });
+            }
+          }
+          // 任務全被隱藏的時間點不顯示（可從設定「還原已隱藏任務」找回）
+          section.timePoints = section.timePoints.filter((tp) => tp.tasks.length > 0);
+        }
+      }
+      this.days = days;
+    },
+
+    openTaskEditor(task, tp) {
+      this.editor = {
+        kind: "task",
+        tpId: tp.id,
+        taskId: task.id,
+        isAdded: !!task._added,
+        isEdited: !!task._edited,
+        action: task.action ?? "",
+        note: task.note ?? "",
+        signal: task.signal ?? "",
+        owners: [...(task.owners ?? [])],
+      };
+    },
+
+    openAddEditor(tp) {
+      this.editor = {
+        kind: "add",
+        tpId: tp.id,
+        taskId: null,
+        action: "",
+        note: "",
+        signal: "",
+        owners: [this.identity],
+      };
+    },
+
+    openTimeEditor(tp) {
+      if (tp.time.kind === "fuzzy") return; // 模糊時間點不支援改時間
+      this.editor = {
+        kind: "time",
+        tpId: tp.id,
+        taskId: null,
+        timeValue: tp.time.value ?? "",
+        isEdited: !!tp._edited,
+      };
+    },
+
+    toggleEditorOwner(key) {
+      const i = this.editor.owners.indexOf(key);
+      if (i >= 0) this.editor.owners.splice(i, 1);
+      else this.editor.owners.push(key);
+    },
+
+    async saveEditor() {
+      const ed = this.editor;
+      if (!ed) return;
+      try {
+        if (ed.kind === "task") {
+          if (ed.isAdded) {
+            // 修改「新增的任務」：直接覆寫原本的 task-add doc
+            await saveEdit(ed.taskId, {
+              targetId: ed.taskId,
+              kind: "task-add",
+              data: {
+                tpId: ed.tpId,
+                action: ed.action.trim(),
+                note: ed.note.trim() || null,
+                signal: ed.signal.trim() || null,
+                owners: ed.owners,
+              },
+              updatedBy: this.identity,
+            });
+          } else {
+            await saveEdit(ed.taskId, {
+              targetId: ed.taskId,
+              kind: "task-patch",
+              data: {
+                action: ed.action.trim(),
+                note: ed.note.trim() || null,
+                signal: ed.signal.trim() || null,
+                owners: ed.owners,
+                hidden: false,
+              },
+              updatedBy: this.identity,
+            });
+          }
+        } else if (ed.kind === "add") {
+          if (!ed.action.trim()) return;
+          const newId = `${ed.tpId}-x${Date.now()}`;
+          await saveEdit(newId, {
+            targetId: newId,
+            kind: "task-add",
+            data: {
+              tpId: ed.tpId,
+              action: ed.action.trim(),
+              note: ed.note.trim() || null,
+              signal: ed.signal.trim() || null,
+              owners: ed.owners,
+            },
+            updatedBy: this.identity,
+          });
+        } else if (ed.kind === "time") {
+          if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(ed.timeValue.trim())) return;
+          await saveEdit(ed.tpId, {
+            targetId: ed.tpId,
+            kind: "tp-patch",
+            data: { timeValue: ed.timeValue.trim() },
+            updatedBy: this.identity,
+          });
+        }
+        this.editor = null;
+      } catch (err) {
+        console.error("[chan7] 儲存編輯失敗", err);
+        alert("儲存失敗，請確認網路與 Firestore 規則已更新");
+      }
+    },
+
+    async hideEditorTask() {
+      const ed = this.editor;
+      if (!ed || ed.kind !== "task") return;
+      try {
+        if (ed.isAdded) {
+          await deleteEdit(ed.taskId); // 新增的任務直接整筆移除
+        } else {
+          await saveEdit(ed.taskId, {
+            targetId: ed.taskId,
+            kind: "task-patch",
+            data: { hidden: true },
+            updatedBy: this.identity,
+          });
+        }
+        this.editor = null;
+      } catch (err) {
+        console.error("[chan7] 隱藏任務失敗", err);
+      }
+    },
+
+    async revertEditor() {
+      const ed = this.editor;
+      if (!ed) return;
+      try {
+        await deleteEdit(ed.kind === "time" ? ed.tpId : ed.taskId);
+        this.editor = null;
+      } catch (err) {
+        console.error("[chan7] 還原失敗", err);
+      }
+    },
+
+    // 隱藏的任務數（供編輯模式顯示還原入口）
+    get hiddenTaskCount() {
+      return Object.values(this.edits ?? {}).filter(
+        (e) => e.kind === "task-patch" && e.data?.hidden
+      ).length;
+    },
+
+    async unhideAllTasks() {
+      for (const [id, e] of Object.entries(this.edits ?? {})) {
+        if (e.kind === "task-patch" && e.data?.hidden) {
+          try {
+            await deleteEdit(id);
+          } catch (err) {
+            console.error("[chan7] 還原隱藏任務失敗", id, err);
+          }
+        }
+      }
     },
 
     async toggleTask(taskId) {
