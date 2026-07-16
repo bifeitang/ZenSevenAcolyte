@@ -1,0 +1,1308 @@
+{
+  "date": "2026-07-22",
+  "dayIndex": 5,
+  "label": "第五日 · 7/22（三）",
+  "participants": [
+    "fahui"
+  ],
+  "sections": [
+    {
+      "id": "d5-sec-1",
+      "title": "前一晚 · 佈場",
+      "timePoints": [
+        {
+          "id": "d5-tp-01",
+          "time": {
+            "kind": "fuzzy",
+            "value": null,
+            "rangeEnd": null,
+            "raw": "前一晚",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "佈場",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-01-t1",
+              "action": "香爐鋪香先鋪好（隔天早課用）",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝/法偉",
+              "signal": null,
+              "note": "清場佈場時完成"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-2",
+      "title": "起板 · 晨間準備",
+      "timePoints": [
+        {
+          "id": "d5-tp-02",
+          "time": {
+            "kind": "exact",
+            "value": "04:40",
+            "rangeEnd": null,
+            "raw": "04:40",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "晨間準備",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-02-t1",
+              "action": "起床",
+              "templateRef": null,
+              "owners": [
+                "all"
+              ],
+              "ownerRaw": "全體",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-02-t2",
+              "action": "上香，新禪堂先不上",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": "早課、晚課上香皆三支"
+            },
+            {
+              "id": "d5-tp-02-t3",
+              "action": "上供水",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-02-t4",
+              "action": "開前鐵門、側門、玻璃門",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-03",
+          "time": {
+            "kind": "exact",
+            "value": "04:55",
+            "rangeEnd": null,
+            "raw": "04:55",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "早課·起板",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-03-t1",
+              "action": "起板：打板 → 敲鐘 → 擊鼓",
+              "templateRef": null,
+              "owners": [],
+              "ownerRaw": "",
+              "signal": "板、鐘、鼓",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-3",
+      "title": "早課（板→鐘→鼓→大磬起腔，不敲地鐘）",
+      "timePoints": [
+        {
+          "id": "d5-tp-04",
+          "time": {
+            "kind": "exact",
+            "value": "05:10",
+            "rangeEnd": null,
+            "raw": "05:10",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "早課準備",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-04-t1",
+              "action": "調整燈光與空調（禪堂溫度維持 75–76°F）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-05",
+          "time": {
+            "kind": "exact",
+            "value": "05:15",
+            "rangeEnd": null,
+            "raw": "05:15",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": null,
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-05-t1",
+              "action": "大磬三聲、上三支香 90min；測試音響",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "大磬×3",
+              "note": null
+            },
+            {
+              "id": "d5-tp-05-t2",
+              "action": "準備主法拈香物料（早晚課不遞主法香）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-05-t3",
+              "action": "準備手提音響＋mic（早齋過堂念佛號用）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-06",
+          "time": {
+            "kind": "exact",
+            "value": "05:27",
+            "rangeEnd": null,
+            "raw": "05:27",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": null,
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-06-t1",
+              "action": "放引香段（維那法師起身、三問訊之前）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "三問訊前",
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-07",
+          "time": {
+            "kind": "fuzzy",
+            "value": null,
+            "rangeEnd": null,
+            "raw": "擊鼓時",
+            "anchorTimePointId": "d5-tp-06",
+            "offsetMinutes": 2
+          },
+          "isBellRow": false,
+          "periodLabel": "儀軌①",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-07-t1",
+              "action": "開始發放儀軌（先數好份數）",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝、法偉",
+              "signal": "擊鼓時",
+              "note": null
+            },
+            {
+              "id": "d5-tp-07-t2",
+              "action": "唱到讚佛偈 9 頁「釋迦如來」時收儀軌，隨後大眾坐香",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝、法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-07-t3",
+              "action": "悅眾止靜後關燈（留佛前燈）、禪堂關門",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-07-t4",
+              "action": "維那開靜後（第一聲引磬）開燈、開門",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-08",
+          "time": {
+            "kind": "fuzzy",
+            "value": null,
+            "rangeEnd": null,
+            "raw": "開靜後",
+            "anchorTimePointId": "d5-tp-06",
+            "offsetMinutes": 40
+          },
+          "isBellRow": false,
+          "periodLabel": "儀軌②",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-08-t1",
+              "action": "燈光全亮、大眾放腿、發放儀軌（不用等大眾站起）",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝、法偉",
+              "signal": "開靜後",
+              "note": null
+            },
+            {
+              "id": "d5-tp-08-t2",
+              "action": "韋馱讚 13 頁「南無普眼菩薩摩訶薩」唱完收儀軌",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝、法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-4",
+      "title": "早齋過堂",
+      "timePoints": [
+        {
+          "id": "d5-tp-09",
+          "time": {
+            "kind": "exact",
+            "value": "06:30",
+            "rangeEnd": null,
+            "raw": "06:30",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "早齋過堂",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-09-t1",
+              "action": "開中央大門",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-09-t2",
+              "action": "男眾先出班、女眾隨後，形成兩路進齋堂",
+              "templateRef": null,
+              "owners": [],
+              "ownerRaw": "",
+              "signal": null,
+              "note": "監香引導"
+            },
+            {
+              "id": "d5-tp-09-t3",
+              "action": "行堂於齋堂門口 mic 交接（齋堂 mic ↔ 禪堂 mic），心燈再拿回",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-5",
+      "title": "上午",
+      "timePoints": [
+        {
+          "id": "d5-tp-10",
+          "time": {
+            "kind": "exact",
+            "value": "07:57",
+            "rangeEnd": null,
+            "raw": "07:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-10-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "前 3 分",
+              "note": "第二支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-11",
+          "time": {
+            "kind": "exact",
+            "value": "08:00",
+            "rangeEnd": null,
+            "raw": "08:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第二支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-11-t1",
+              "action": "上香（前 8 分；有開示則上 2H 香）、開燈、開空調",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": "7/23、7/24 08:00 起小參（圖書館佈屏風）"
+            },
+            {
+              "id": "d5-tp-11-t2",
+              "action": "悅眾止靜後關燈、禪堂關門",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-11-t3",
+              "action": "維那開靜後開燈、開門",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-11-t4",
+              "action": "行香後上香 → 關燈",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-12",
+          "time": {
+            "kind": "exact",
+            "value": "09:00",
+            "rangeEnd": null,
+            "raw": "09:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "趙州茶",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-12-t1",
+              "action": "確認休息區燈光、茶水",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-13",
+          "time": {
+            "kind": "exact",
+            "value": "09:27",
+            "rangeEnd": null,
+            "raw": "09:27",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-13-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "前 3 分",
+              "note": "第三支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-14",
+          "time": {
+            "kind": "exact",
+            "value": "09:30",
+            "rangeEnd": null,
+            "raw": "09:30",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第三支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-14-t1",
+              "action": "上香（前 8 分）→ 止靜關燈 → 開靜開燈開門 → 行香後上香關燈",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": "★ 開示（7/20–7/23 每日 9:30）"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-15",
+          "time": {
+            "kind": "exact",
+            "value": "10:27",
+            "rangeEnd": null,
+            "raw": "10:27",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-15-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "前 3 分",
+              "note": "第四支香前（時間待確認）"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-16",
+          "time": {
+            "kind": "exact",
+            "value": "10:30",
+            "rangeEnd": null,
+            "raw": "10:30",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第四支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-16-t1",
+              "action": "同固定動作",
+              "templateRef": "fixed:sitting-cycle",
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-6",
+      "title": "午齋過堂",
+      "timePoints": [
+        {
+          "id": "d5-tp-17",
+          "time": {
+            "kind": "exact",
+            "value": "11:30",
+            "rangeEnd": null,
+            "raw": "11:30",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "午齋過堂",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-17-t1",
+              "action": "開中央大門；男眾先、女眾後兩路進齋堂",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-17-t2",
+              "action": "mic 交接（齋堂 mic ↔ 禪堂 mic），\n心燈再拿回",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-17-t3",
+              "action": "打掃新禪堂地板、整理坐墊、平灰",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": "午齋/養息"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-7",
+      "title": "下午",
+      "timePoints": [
+        {
+          "id": "d5-tp-18",
+          "time": {
+            "kind": "exact",
+            "value": "13:57",
+            "rangeEnd": null,
+            "raw": "13:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-18-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": "前 3 分",
+              "note": "第五支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-19",
+          "time": {
+            "kind": "exact",
+            "value": "14:00",
+            "rangeEnd": null,
+            "raw": "14:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第五支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-19-t1",
+              "action": "固定動作（37 分開靜、放腿 3 分、行香 5 分）",
+              "templateRef": "fixed:sitting-cycle",
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": "7/23、7/24 14:00–17:30 小參"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-20",
+          "time": {
+            "kind": "exact",
+            "value": "14:57",
+            "rangeEnd": null,
+            "raw": "14:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-20-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": "前 3 分",
+              "note": "第六支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-21",
+          "time": {
+            "kind": "exact",
+            "value": "15:00",
+            "rangeEnd": null,
+            "raw": "15:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第六支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-21-t1",
+              "action": "同固定動作",
+              "templateRef": "fixed:sitting-cycle",
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-22",
+          "time": {
+            "kind": "range",
+            "value": "15:00",
+            "rangeEnd": "16:00",
+            "raw": "15:00–\n16:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "收供水",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-22-t1",
+              "action": "收供水時段；該支香結束休息時（約 16:00）收禪堂供水",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": "見說明頁"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-23",
+          "time": {
+            "kind": "exact",
+            "value": "15:57",
+            "rangeEnd": null,
+            "raw": "15:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-23-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": "前 3 分",
+              "note": "第七支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-24",
+          "time": {
+            "kind": "exact",
+            "value": "16:00",
+            "rangeEnd": null,
+            "raw": "16:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第七支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-24-t1",
+              "action": "同固定動作",
+              "templateRef": "fixed:sitting-cycle",
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-25",
+          "time": {
+            "kind": "exact",
+            "value": "16:57",
+            "rangeEnd": null,
+            "raw": "16:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-25-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": "前 3 分",
+              "note": "第八支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-26",
+          "time": {
+            "kind": "exact",
+            "value": "17:00",
+            "rangeEnd": null,
+            "raw": "17:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第八支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-26-t1",
+              "action": "同固定動作",
+              "templateRef": "fixed:sitting-cycle",
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-27",
+          "time": {
+            "kind": "exact",
+            "value": "17:40",
+            "rangeEnd": null,
+            "raw": "17:40",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "藥石",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-27-t1",
+              "action": "開中央大門；打掃新禪堂地板",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-27-t2",
+              "action": "收供水（含乳海、淨瓶）、平灰",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-8",
+      "title": "晚間",
+      "timePoints": [
+        {
+          "id": "d5-tp-28",
+          "time": {
+            "kind": "exact",
+            "value": "19:57",
+            "rangeEnd": null,
+            "raw": "19:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-28-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "前 3 分",
+              "note": "第九支香前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-29",
+          "time": {
+            "kind": "exact",
+            "value": "20:00",
+            "rangeEnd": null,
+            "raw": "20:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "第九支香",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-29-t1",
+              "action": "上香、大磬×3（前 15 分）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": "大磬×3",
+              "note": "長香（擇一晚，需確認）：三問訊完直接止靜、43 分開靜不跑香"
+            },
+            {
+              "id": "d5-tp-29-t2",
+              "action": "打坐前關燈；開靜後開燈",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-9",
+      "title": "晚課（簡易施食）",
+      "timePoints": [
+        {
+          "id": "d5-tp-30",
+          "time": {
+            "kind": "exact",
+            "value": "20:50",
+            "rangeEnd": null,
+            "raw": "0.8680555555555556",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": null,
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-30-t1",
+              "action": "確認晚課物料",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": "主法拈香爐（正常一字，保證能燒到施食）、\n拈香棒（四隻，主法三隻，施食一隻大眾）"
+            },
+            {
+              "id": "d5-tp-30-t2",
+              "action": "上香（60 min，三支）",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-31",
+          "time": {
+            "kind": "exact",
+            "value": "20:57",
+            "rangeEnd": null,
+            "raw": "20:57",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": true,
+          "periodLabel": "地鐘",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-31-t1",
+              "action": "敲地鐘（該支香前 3 分）",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": "前 3 分",
+              "note": "晚課前"
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-32",
+          "time": {
+            "kind": "exact",
+            "value": "21:00",
+            "rangeEnd": null,
+            "raw": "21:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "晚課",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-32-t1",
+              "action": "就座畢發儀軌 →『南無本師…』收",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-32-t2",
+              "action": "止靜關燈、開靜開燈、開中間大門、開帘子",
+              "templateRef": null,
+              "owners": [
+                "fawei",
+                "fahui"
+              ],
+              "ownerRaw": "法偉、法輝",
+              "signal": null,
+              "note": "法偉（西）、法輝（東）"
+            },
+            {
+              "id": "d5-tp-32-t3",
+              "action": "發儀軌",
+              "templateRef": null,
+              "owners": [
+                "fawei",
+                "fahui"
+              ],
+              "ownerRaw": "法偉、法輝",
+              "signal": null,
+              "note": "法偉（西）、法輝（東）"
+            },
+            {
+              "id": "d5-tp-32-t4",
+              "action": "四生九有、三皈依後--->置施食拜墊",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": "主法後7格"
+            },
+            {
+              "id": "d5-tp-32-t5",
+              "action": "半陣鼓--->放拈香棒",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-32-t6",
+              "action": "施食 ---> 開所有大門供施食者出入",
+              "templateRef": null,
+              "owners": [
+                "fawei"
+              ],
+              "ownerRaw": "法偉",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-32-t7",
+              "action": "施食後移開施食者拜墊",
+              "templateRef": null,
+              "owners": [
+                "fahui"
+              ],
+              "ownerRaw": "法輝",
+              "signal": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5-sec-10",
+      "title": "安板",
+      "timePoints": [
+        {
+          "id": "d5-tp-33",
+          "time": {
+            "kind": "exact",
+            "value": "22:00",
+            "rangeEnd": null,
+            "raw": "22:00",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "安板",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-33-t1",
+              "action": "22:00–22:10 大鼓；22:10–22:30 大鐘；22:30 鐘板對接",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei"
+              ],
+              "ownerRaw": "法輝、法偉",
+              "signal": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "d5-tp-34",
+          "time": {
+            "kind": "exact",
+            "value": "22:30",
+            "rangeEnd": null,
+            "raw": "22:30",
+            "anchorTimePointId": null,
+            "offsetMinutes": null
+          },
+          "isBellRow": false,
+          "periodLabel": "安板·養息",
+          "leadMinutesOverride": null,
+          "tasks": [
+            {
+              "id": "d5-tp-34-t1",
+              "action": "打掃新禪堂地板",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei",
+                "other"
+              ],
+              "ownerRaw": "法輝、法偉、法然",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-34-t2",
+              "action": "整理禪凳及蓋腿布",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei",
+                "other"
+              ],
+              "ownerRaw": "法輝、法偉、法然",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-34-t3",
+              "action": "音響充電",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei",
+                "other"
+              ],
+              "ownerRaw": "法輝、法偉、法然",
+              "signal": null,
+              "note": null
+            },
+            {
+              "id": "d5-tp-34-t4",
+              "action": "香爐平灰（鋪好隔日早課香爐）",
+              "templateRef": null,
+              "owners": [
+                "fahui",
+                "fawei",
+                "other"
+              ],
+              "ownerRaw": "法輝、法偉、法然",
+              "signal": null,
+              "note": "隔天早課用"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

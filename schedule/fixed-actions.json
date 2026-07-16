@@ -1,0 +1,57 @@
+[
+  {
+    "id": "fixed:sitting-start-8min",
+    "title": "坐香 · 前 8 分",
+    "text": "上香（依段）、開燈、開空調（約 75–76°F 或依實況）、測音響（法會/開示時）"
+  },
+  {
+    "id": "fixed:sitting-bell-3min",
+    "title": "坐香 · 前 3 分",
+    "text": "敲地鐘（各日表已獨立成列）"
+  },
+  {
+    "id": "fixed:still-lights-off",
+    "title": "悅眾『止靜』後",
+    "text": "關燈（留佛前燈）、禪堂關門"
+  },
+  {
+    "id": "fixed:open-lights-on",
+    "title": "維那『開靜』（第一聲引磬）後",
+    "text": "開燈、開禪堂門"
+  },
+  {
+    "id": "fixed:walking-end",
+    "title": "行香 / 跑香結束",
+    "text": "上香 → 關燈"
+  },
+  {
+    "id": "fixed:sitting-duration",
+    "title": "時長",
+    "text": "坐香 37 分開靜；長香 43 分開靜（不跑香）；每支香 37 分起座、放腿 3 分、行香 5 分"
+  },
+  {
+    "id": "fixed:sutra-extra",
+    "title": "早 / 晚課加做",
+    "text": "主法拈香物料（進堂前點引香段，課誦不遞主法香）；就座畢發儀軌 → 讚佛偈『南無本師…』收 → 起座再發 → 韋馱/伽藍讚收"
+  },
+  {
+    "id": "fixed:evening-feeding-extra",
+    "title": "晚課施食加做",
+    "text": "換環香爐點燃 → 四生九有/三皈依後半陣鼓 → 置施食拜墊、開中央大門、放拖鞋、開屋外大門 → 施食畢移開拜墊"
+  },
+  {
+    "id": "fixed:meal-hall-extra",
+    "title": "過堂（早/午齋）加做",
+    "text": "開中央大門；齋堂門口 mic 交接（齋堂 mic ↔ 禪堂 mic）；男眾先、女眾後兩路進齋堂"
+  },
+  {
+    "id": "fixed:rest-close",
+    "title": "養息 / 安板",
+    "text": "打掃新（舊）禪堂地板、整理禪凳與蓋腿布、香爐平灰、收供水 / 乳海淨瓶"
+  },
+  {
+    "id": "fixed:sitting-cycle",
+    "title": "每支香標準流程",
+    "text": "坐香 37 分開靜；長香 43 分開靜（不跑香）；每支香 37 分起座、放腿 3 分、行香 5 分。前 8 分上香開燈開空調；止靜關燈；開靜開燈開門；行香後上香關燈"
+  }
+]

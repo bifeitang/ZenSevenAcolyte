@@ -1,0 +1,14 @@
+{
+  "name": "chan7-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2026 禪七心燈流程 App — PWA + Firestore 勾選同步 + webcal .ics 提醒",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "generate-ics": "node scripts/generate_ics.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

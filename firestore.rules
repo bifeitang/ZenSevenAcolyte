@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /retreats/chan7-2026/checks/{taskId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.taskId == taskId
+        && request.resource.data.keys().hasOnly(['taskId','checkedBy','updatedAt']);
+      allow update: if request.auth != null
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['checkedBy','updatedAt']);
+      allow delete: if false;
+    }
+  }
+}

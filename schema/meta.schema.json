@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chan7-2026/schema/meta.schema.json",
+  "title": "meta.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "retreatId",
+    "timezone",
+    "scheduleVersion",
+    "owners",
+    "defaultLeadMinutes",
+    "defaultEventDurationMinutes",
+    "icsFuzzyStrategy"
+  ],
+  "properties": {
+    "retreatId": { "type": "string", "minLength": 1 },
+    "timezone": { "type": "string", "minLength": 1 },
+    "scheduleVersion": {
+      "type": "string",
+      "description": "ISO 8601 datetime with offset, e.g. 2026-07-16T12:00:00-05:00",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}([+-]\\d{2}:\\d{2}|Z)$"
+    },
+    "owners": {
+      "type": "object",
+      "minProperties": 1,
+      "required": [
+        "fahui",
+        "fawei",
+        "attendant",
+        "server",
+        "duty",
+        "volunteer",
+        "all",
+        "other"
+      ],
+      "propertyNames": {
+        "pattern": "^[a-z][a-zA-Z0-9_-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["displayName", "color"],
+        "properties": {
+          "displayName": { "type": "string", "minLength": 1 },
+          "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+        }
+      }
+    },
+    "defaultLeadMinutes": { "type": "integer", "minimum": 0 },
+    "defaultEventDurationMinutes": { "type": "integer", "minimum": 1 },
+    "icsFuzzyStrategy": { "type": "string", "enum": ["anchor", "skip"] }
+  }
+}

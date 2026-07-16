@@ -1,0 +1,146 @@
+[
+  {
+    "id": "prep-1",
+    "location": "新禪堂",
+    "item": "禪凳內清空",
+    "note": null
+  },
+  {
+    "id": "prep-2",
+    "location": "新禪堂",
+    "item": "蓋腿布統一折疊",
+    "note": null
+  },
+  {
+    "id": "prep-3",
+    "location": "新禪堂",
+    "item": "佛龕保持清潔",
+    "note": null
+  },
+  {
+    "id": "prep-4",
+    "location": "新禪堂",
+    "item": "中台-禪七課誦儀軌(中英文版) n=67",
+    "note": "參加人數:"
+  },
+  {
+    "id": "prep-5",
+    "location": "新禪堂",
+    "item": "八關齋戒手冊(主法、維那、悅眾)  n= 3",
+    "note": "17(男), 50(女)"
+  },
+  {
+    "id": "prep-6",
+    "location": "新禪堂",
+    "item": "八關齋戒手冊(中英文版)  n= 67",
+    "note": null
+  },
+  {
+    "id": "prep-7",
+    "location": "圖書館(英)",
+    "item": "站板、香板、板、引磬、小木魚、蓋腿布、麥克風、放映機、地鐘。(法器及禪七手冊)",
+    "note": null
+  },
+  {
+    "id": "prep-8",
+    "location": "舊禪堂(中)",
+    "item": "站板、香板、板、引磬、小木魚、蓋腿布、麥克風、放映機、地鐘。(法器及禪七手冊)",
+    "note": null
+  },
+  {
+    "id": "prep-9",
+    "location": "起七",
+    "item": "主法香、主法拜墊、主法經架、起七/灑淨法語、香板*4",
+    "note": null
+  },
+  {
+    "id": "prep-10",
+    "location": "灑淨",
+    "item": "淨瓶、楊柳枝、托盤、吉祥水、無線mic、紙巾、灑淨儀軌",
+    "note": null
+  },
+  {
+    "id": "prep-11",
+    "location": "早晚課",
+    "item": "中英文禪七課誦儀軌、拈香爐*1、拈香碟*1、主法拜墊、施食者拜墊",
+    "note": null
+  },
+  {
+    "id": "prep-12",
+    "location": "過堂",
+    "item": "早、午齋過堂手提音響(充電)+mic",
+    "note": null
+  },
+  {
+    "id": "prep-13",
+    "location": "八關齋戒",
+    "item": "清淨戒壇幡幟",
+    "note": null
+  },
+  {
+    "id": "prep-14",
+    "location": "八關齋戒",
+    "item": "紅色蘭花一朵/水晶碟（週五買）、主法香、捻香爐/碟、小椰墊或蓋腿布",
+    "note": null
+  },
+  {
+    "id": "prep-15",
+    "location": "八關齋戒",
+    "item": "中英文八關齋戒儀軌、拈香爐*2、拈香碟、經架/法語",
+    "note": null
+  },
+  {
+    "id": "prep-16",
+    "location": "八關齋戒",
+    "item": "統計人數紙條(禪七人員+義工 )",
+    "note": null
+  },
+  {
+    "id": "prep-17",
+    "location": "知客室",
+    "item": "禪七作息表",
+    "note": null
+  },
+  {
+    "id": "prep-18",
+    "location": null,
+    "item": "男女眾寮房",
+    "note": null
+  },
+  {
+    "id": "prep-19",
+    "location": null,
+    "item": "報到區佈置圖",
+    "note": null
+  },
+  {
+    "id": "prep-20",
+    "location": null,
+    "item": "男女眾休息區佈置圖",
+    "note": null
+  },
+  {
+    "id": "prep-21",
+    "location": null,
+    "item": "起七時法師及精進禪七大眾座位圖",
+    "note": null
+  },
+  {
+    "id": "prep-22",
+    "location": "休息區",
+    "item": "禪七作息表、禪堂規約、禁語、生活規約...等之標語。",
+    "note": null
+  },
+  {
+    "id": "prep-23",
+    "location": "休息區",
+    "item": "意見箱,小型飲水機、餅乾、杯子、紙巾、一般醫藥用品",
+    "note": null
+  },
+  {
+    "id": "prep-24",
+    "location": null,
+    "item": "跟 音響組         連絡有關如何調種整音響",
+    "note": null
+  }
+]

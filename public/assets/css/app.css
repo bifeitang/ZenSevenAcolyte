@@ -1,0 +1,669 @@
+/* assets/css/app.css — DESIGN.md 第 4 節視覺規格 */
+
+:root {
+  --fahui: #3b5bdb;
+  --fawei: #e8590c;
+  --neutral: #868e96;
+  --bell-bg: #fff9db;
+  --bell-border: #fab005;
+
+  --bg: #f4f5f7;
+  --card-bg: #ffffff;
+  --text: #1c1e21;
+  --text-muted: #6b7078;
+  --border: #e3e5e9;
+  --accent: #3b5bdb;
+  --danger: #e03131;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1b1e;
+    --card-bg: #25262b;
+    --text: #e9ecef;
+    --text-muted: #a6a9b0;
+    --border: #34363c;
+    --accent: #6f8bff;
+    --bell-bg: #3a3418;
+    --bell-border: #d29b1f;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1a1b1e;
+  --card-bg: #25262b;
+  --text: #e9ecef;
+  --text-muted: #a6a9b0;
+  --border: #34363c;
+  --accent: #6f8bff;
+  --bell-bg: #3a3418;
+  --bell-border: #d29b1f;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f5f7;
+  --card-bg: #ffffff;
+  --text: #1c1e21;
+  --text-muted: #6b7078;
+  --border: #e3e5e9;
+  --accent: #3b5bdb;
+  --bell-bg: #fff9db;
+  --bell-border: #fab005;
+  color-scheme: light;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.app-shell {
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- PIN 畫面 / 身份選擇 ---------- */
+
+.gate-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  gap: 24px;
+  text-align: center;
+}
+
+.gate-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.gate-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.pin-dots {
+  display: flex;
+  gap: 14px;
+}
+
+.pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+}
+
+.pin-dot.filled {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  gap: 14px;
+}
+
+.pin-key {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-key:active {
+  background: var(--border);
+}
+
+.pin-error {
+  color: var(--danger);
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.identity-choices {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.identity-btn {
+  min-width: 140px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.identity-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+/* ---------- 主畫面 ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  padding: 10px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.app-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.sync-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.sync-dot.synced { background: #2f9e44; }
+.sync-dot.pending { background: #f2b705; }
+.sync-dot.offline { background: #e03131; }
+.sync-dot.local { background: #adb5bd; border: 1px solid var(--border); }
+
+.settings-btn {
+  border: none;
+  background: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 6px;
+}
+
+.update-banner {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  gap: 12px;
+}
+
+.update-banner button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.error-banner {
+  background: var(--danger);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.error-banner button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 日頁籤水平捲動 pill */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 10px;
+  scrollbar-width: none;
+}
+
+.day-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.day-tab {
+  flex: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.day-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* now/next 卡：頂部常駐 */
+.nownext-card {
+  margin: 0 16px 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.nownext-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nownext-countdown {
+  font-size: 40px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  line-height: 1.1;
+  margin: 2px 0;
+}
+
+.nownext-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.nownext-time {
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.nownext-tasks {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nownext-empty {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ---------- 時間軸 ---------- */
+
+.timeline {
+  flex: 1;
+  padding: 0 16px 32px;
+}
+
+.section-block {
+  margin-bottom: 18px;
+}
+
+.section-title {
+  position: sticky;
+  top: 88px;
+  z-index: 10;
+  background: var(--bg);
+  padding: 10px 2px 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tp-card {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.tp-card.is-bell {
+  border-left: 3px solid var(--bell-border);
+  background: var(--bell-bg);
+}
+
+.tp-time {
+  flex: none;
+  width: 64px;
+  padding-top: 2px;
+  text-align: left;
+}
+
+.time-badge {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  font-size: 14px;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.time-badge.approx {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.tp-period {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.tp-tasks {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.owner-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.owner-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--chip-bg);
+  color: var(--chip-color);
+}
+
+.owner-chip .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--chip-color);
+}
+
+.task-action {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.task-template {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(134, 142, 150, 0.12);
+  border-radius: 8px;
+  padding: 6px 8px;
+  white-space: pre-line;
+}
+
+.task-signal {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: rgba(134, 142, 150, 0.15);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.task-note {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+/* checkbox 44x44 觸控區，右側對齊 */
+.task-check {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.task-check button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-check button::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+/* 對方已勾 → 外環用對方顏色 */
+.task-check button.is-other-checked {
+  border-color: var(--other-color, var(--neutral));
+}
+
+/* 自己勾 → 填色 = 自己顏色 */
+.task-check button.is-self-checked {
+  border-color: var(--self-color, var(--accent));
+}
+
+.task-check button.is-self-checked::after {
+  background: var(--self-color, var(--accent));
+}
+
+/* 雙方勾 → 雙色 */
+.task-check button.is-both-checked {
+  border-color: var(--self-color, var(--accent));
+  background: linear-gradient(135deg, var(--self-color, var(--accent)) 50%, var(--other-color, var(--neutral)) 50%);
+}
+
+.task-check button.is-both-checked::after {
+  background: #fff;
+}
+
+/* ---------- 設定抽屜 ---------- */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(340px, 88vw);
+  background: var(--card-bg);
+  z-index: 41;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawer h2 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.drawer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-section h3 {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 600;
+}
+
+.drawer-close {
+  align-self: flex-end;
+  border: none;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.webcal-link {
+  word-break: break-all;
+  font-size: 12px;
+  padding: 8px 10px;
+  background: rgba(134, 142, 150, 0.12);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.drawer-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.drawer-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.drawer-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

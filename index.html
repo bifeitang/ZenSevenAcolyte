@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>2026 禪七心燈流程</title>
+    <meta name="description" content="2026 禪七心燈（法輝／法偉）值勤時間表、任務勾選與提醒" />
+
+    <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1b1e" media="(prefers-color-scheme: dark)" />
+
+    <!-- PWA / iOS 主畫面 -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="禪七心燈" />
+    <link rel="apple-touch-icon" href="assets/icon-180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png" />
+
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+  <body>
+    <div class="app-shell" x-data="chan7App()" x-init="init()" x-cloak>
+      <!-- ============ PIN 畫面 ============ -->
+      <section class="gate-screen" x-show="!unlocked" x-cloak x-init="$watch('pinInput', v => { if (v.length === 4) submitPin(); })">
+        <div>
+          <div class="gate-title">2026 禪七心燈流程</div>
+          <div class="gate-subtitle">請輸入 4 碼 PIN 解鎖</div>
+        </div>
+
+        <div class="pin-dots" aria-hidden="true">
+          <template x-for="i in 4" :key="i">
+            <span class="pin-dot" :class="{ filled: pinInput.length >= i }"></span>
+          </template>
+        </div>
+
+        <div class="pin-error" x-text="pinError ? 'PIN 錯誤，請再試一次' : ''" role="alert"></div>
+
+        <div class="pin-keypad" role="group" aria-label="PIN 數字鍵盤">
+          <template x-for="n in [1,2,3,4,5,6,7,8,9]" :key="n">
+            <button type="button" class="pin-key" @click="pressPinKey(n)" x-text="n"></button>
+          </template>
+          <span></span>
+          <button type="button" class="pin-key" @click="pressPinKey(0)">0</button>
+          <button type="button" class="pin-key" @click="backspacePin()" aria-label="刪除">⌫</button>
+        </div>
+
+        <label class="sr-only" for="pin-fallback-input">PIN 輸入（備用）</label>
+        <input
+          id="pin-fallback-input"
+          class="sr-only"
+          type="tel"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="4"
+          x-model="pinInput"
+          @keyup.enter="submitPin()"
+        />
+      </section>
+
+      <!-- ============ 身份選擇 ============ -->
+      <section class="gate-screen" x-show="unlocked && !identity" x-cloak>
+        <div>
+          <div class="gate-title">請選擇你的身份</div>
+          <div class="gate-subtitle">用於任務勾選與同步狀態顯示</div>
+        </div>
+        <div class="identity-choices">
+          <button type="button" class="identity-btn" @click="chooseIdentity('fahui')">
+            <span class="identity-dot" style="background:#3b5bdb"></span>
+            <span>法輝</span>
+          </button>
+          <button type="button" class="identity-btn" @click="chooseIdentity('fawei')">
+            <span class="identity-dot" style="background:#e8590c"></span>
+            <span>法偉</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ 主畫面 ============ -->
+      <template x-if="unlocked && identity">
+        <div>
+          <header class="topbar">
+            <div class="topbar-row">
+              <div class="app-title">2026 禪七心燈流程</div>
+              <div class="topbar-row" style="gap: 10px">
+                <div class="sync-status">
+                  <span
+                    class="sync-dot"
+                    :class="{
+                      synced: syncStatus === 'synced',
+                      pending: syncStatus === 'pending',
+                      offline: syncStatus === 'offline',
+                      local: syncStatus === 'local',
+                    }"
+                  ></span>
+                  <span
+                    x-text="{
+                      synced: '已同步',
+                      pending: '同步中',
+                      offline: '離線',
+                      local: '本機',
+                    }[syncStatus] ?? syncStatus"
+                  ></span>
+                </div>
+                <button type="button" class="settings-btn" @click="openSettings()" aria-label="設定">⚙️</button>
+              </div>
+            </div>
+
+            <div class="update-banner" x-show="updateAvailable" x-cloak>
+              <span>流程已更新，請重新整理以套用最新版本</span>
+              <button type="button" @click="reload()">重新整理</button>
+            </div>
+
+            <div class="error-banner" x-show="loadError" x-cloak>
+              <span>無法載入流程資料，請檢查網路連線</span>
+              <button type="button" @click="loadSchedule()">重試</button>
+            </div>
+
+            <nav class="day-tabs" aria-label="日期選擇">
+              <template x-for="day in days" :key="day.date">
+                <button
+                  type="button"
+                  class="day-tab"
+                  :class="{ active: day.date === activeDate }"
+                  @click="setActiveDate(day.date)"
+                  x-text="shortDateLabel(day)"
+                ></button>
+              </template>
+            </nav>
+          </header>
+
+          <!-- now/next 卡：頂部常駐 -->
+          <section class="nownext-card" aria-label="下一時間點倒數">
+            <template x-if="nextInfo">
+              <div>
+                <div class="nownext-label">距離下一時間點</div>
+                <div class="nownext-countdown" x-text="countdownText"></div>
+                <div class="nownext-meta">
+                  <span class="nownext-time" x-text="timeBadge(nextInfo.timePoint).text"></span>
+                  <span x-show="nextInfo.timePoint.periodLabel" x-text="nextInfo.timePoint.periodLabel"></span>
+                </div>
+                <div class="nownext-tasks">
+                  <template x-for="(line, idx) in nextTaskSummaries()" :key="idx">
+                    <span x-text="'· ' + line"></span>
+                  </template>
+                </div>
+              </div>
+            </template>
+            <template x-if="!nextInfo">
+              <div class="nownext-empty">目前沒有即將到來的時間點</div>
+            </template>
+          </section>
+
+          <!-- 時間軸 -->
+          <main class="timeline">
+            <template x-for="section in activeSections" :key="section.id">
+              <div class="section-block">
+                <div class="section-title" x-text="'【' + section.title + '】'"></div>
+
+                <template x-for="timePoint in section.timePoints" :key="timePoint.id">
+                  <div class="tp-card" :class="{ 'is-bell': timePoint.isBellRow }">
+                    <div class="tp-time">
+                      <div
+                        class="time-badge"
+                        :class="{ approx: timeBadge(timePoint).approx }"
+                        x-text="(timePoint.isBellRow ? '🔔 ' : '') + timeBadge(timePoint).text"
+                      ></div>
+                      <div class="tp-period" x-show="timePoint.periodLabel" x-text="timePoint.periodLabel"></div>
+                    </div>
+
+                    <div class="tp-tasks">
+                      <template x-for="task in timePoint.tasks" :key="task.id">
+                        <div class="task-row">
+                          <div class="task-body">
+                            <div class="owner-chips" x-show="ownerChips(task).length">
+                              <template x-for="chip in ownerChips(task)" :key="chip.key">
+                                <span
+                                  class="owner-chip"
+                                  :class="{ 'is-primary': chip.isPrimary }"
+                                  :style="'--chip-color:' + chip.color + '; --chip-bg:' + chip.color + '26'"
+                                >
+                                  <span class="dot"></span>
+                                  <span x-text="chip.displayName"></span>
+                                </span>
+                              </template>
+                            </div>
+
+                            <div class="task-action" x-text="task.action"></div>
+
+                            <div class="task-template" x-show="resolveTemplate(task)" x-text="resolveTemplate(task)"></div>
+
+                            <span class="task-signal" x-show="task.signal" x-text="task.signal"></span>
+                            <div class="task-note" x-show="task.note" x-text="task.note"></div>
+                          </div>
+
+                          <div class="task-check">
+                            <button
+                              type="button"
+                              :class="checkboxClasses(task.id)"
+                              :style="checkboxStyle(task.id)"
+                              :aria-pressed="isCheckedBy(task.id, identity)"
+                              :aria-label="'標記任務：' + task.action.split('\n')[0]"
+                              @click="toggleTask(task.id)"
+                            ></button>
+                          </div>
+                        </div>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </template>
+          </main>
+        </div>
+      </template>
+
+      <!-- ============ 設定抽屜 ============ -->
+      <template x-if="settingsOpen">
+        <div>
+          <div class="drawer-overlay" @click="closeSettings()"></div>
+          <aside class="drawer" role="dialog" aria-label="設定">
+            <button type="button" class="drawer-close" @click="closeSettings()" aria-label="關閉設定">✕</button>
+            <h2>設定</h2>
+
+            <div class="drawer-section">
+              <h3>訂閱行事曆提醒</h3>
+              <div class="webcal-link" x-text="webcalLink"></div>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0">
+                iOS／macOS：直接點下方按鈕以「webcal://」開啟訂閱；Android／其他裝置：於行事曆 App
+                選擇「以網址訂閱」並貼上 https 版本連結。訂閱後行事曆會依各時間點提前提醒。
+              </p>
+              <a class="drawer-btn" :href="webcalLink">開啟 webcal 訂閱連結</a>
+              <div class="webcal-link" x-text="icsHttpLink"></div>
+            </div>
+
+            <div class="drawer-section">
+              <h3>切換身份</h3>
+              <button
+                type="button"
+                class="drawer-btn"
+                :class="{ active: identity === 'fahui' }"
+                @click="switchIdentity('fahui')"
+              >
+                法輝
+              </button>
+              <button
+                type="button"
+                class="drawer-btn"
+                :class="{ active: identity === 'fawei' }"
+                @click="switchIdentity('fawei')"
+              >
+                法偉
+              </button>
+            </div>
+
+            <div class="drawer-section">
+              <h3>版本資訊</h3>
+              <div class="drawer-meta">
+                <div x-show="meta">流程版本：<span x-text="meta?.scheduleVersion"></span></div>
+                <div>時區：<span x-text="meta?.timezone"></span></div>
+                <div>同步狀態：<span x-text="syncStatus"></span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </template>
+    </div>
+
+    <script type="module" src="assets/js/app.js"></script>
+    <script defer src="assets/vendor/alpine.min.js"></script>
+    <script type="module">
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch((err) => {
+            console.error("[chan7] service worker 註冊失敗", err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
