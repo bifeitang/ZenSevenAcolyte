@@ -202,7 +202,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": "三問訊前",
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -229,7 +230,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": "擊鼓時",
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-06-t2",
@@ -240,7 +242,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "唱到讚佛偈 9 頁「釋迦如來」時",
+              "stepAction": "收儀軌，隨後大眾坐香"
             },
             {
               "id": "d8-tp-06-t3",
@@ -251,7 +256,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "悅眾止靜後",
+              "stepAction": "關燈（留佛前燈）、禪堂關門"
             },
             {
               "id": "d8-tp-06-t4",
@@ -262,7 +270,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "維那開靜後",
+              "stepAction": "（第一聲引磬）開燈、開門"
             }
           ]
         },
@@ -289,7 +300,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": "開靜後",
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-07-t2",
@@ -300,7 +312,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -333,7 +346,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-08-t2",
@@ -342,7 +356,8 @@
               "owners": [],
               "ownerRaw": "",
               "signal": null,
-              "note": "監香引導"
+              "note": "監香引導",
+              "display": "step"
             },
             {
               "id": "d8-tp-08-t3",
@@ -353,7 +368,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-08-t4",
@@ -364,7 +380,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": "早齋/養息"
+              "note": "早齋/養息",
+              "display": "step"
             }
           ]
         }
@@ -424,7 +441,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -478,7 +496,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -539,7 +558,25 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "上香（前 10 分）"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "燈光"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "空調"
+                }
+              ]
             }
           ]
         },
@@ -593,7 +630,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-16-t2",
@@ -604,7 +642,8 @@
               ],
               "ownerRaw": "侍者",
               "signal": null,
-              "note": "主七法師進堂前點引香段；全體搭衣"
+              "note": "主七法師進堂前點引香段；全體搭衣",
+              "display": "step"
             },
             {
               "id": "d8-tp-16-t3",
@@ -615,7 +654,8 @@
               ],
               "ownerRaw": "侍者",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-16-t4",
@@ -626,7 +666,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-16-t5",
@@ -637,7 +678,8 @@
               ],
               "ownerRaw": "總監香",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-16-t6",
@@ -648,7 +690,8 @@
               ],
               "ownerRaw": "監香",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -673,7 +716,8 @@
               "owners": [],
               "ownerRaw": "",
               "signal": null,
-              "note": "若有三皈依，佈置舊禪堂"
+              "note": "若有三皈依，佈置舊禪堂",
+              "display": "step"
             },
             {
               "id": "d8-tp-17-t2",
@@ -682,7 +726,10 @@
               "owners": [],
               "ownerRaw": "",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "拍完布達『解七茶會可隨喜供養主七法師』",
+              "stepAction": "；義工團體照"
             }
           ]
         }
@@ -715,7 +762,35 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "司儀台"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "主法拜墊（照片確認）"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "供僧音樂"
+                },
+                {
+                  "id": "i4",
+                  "group": null,
+                  "text": "無線 mic（心得分享）"
+                },
+                {
+                  "id": "i5",
+                  "group": null,
+                  "text": "地鐘放東單"
+                }
+              ]
             }
           ]
         },
@@ -769,7 +844,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": "找人一起"
+              "note": "找人一起",
+              "display": "step"
             },
             {
               "id": "d8-tp-20-t2",
@@ -780,7 +856,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-20-t3",
@@ -791,7 +868,8 @@
               ],
               "ownerRaw": "司儀",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-20-t4",
@@ -802,7 +880,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": "地鐘計時",
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d8-tp-20-t5",
@@ -811,7 +890,8 @@
               "owners": [],
               "ownerRaw": "",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -871,7 +951,25 @@
               ],
               "ownerRaw": "義工",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "打掃新禪堂地板"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "香爐平灰"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "整理禪凳蓋腿布"
+                }
+              ]
             },
             {
               "id": "d8-tp-22-t2",

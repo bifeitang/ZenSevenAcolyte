@@ -195,6 +195,26 @@ function chan7App() {
       return this.identity === "fahui" ? "fawei" : "fahui";
     },
 
+    // 流程步驟編號：同一時間點內只對 display==='step' 的任務連續編號
+    stepNo(timePoint, taskIndex) {
+      let n = 0;
+      for (let i = 0; i <= taskIndex; i++) {
+        if (timePoint.tasks[i]?.display === "step") n++;
+      }
+      return n;
+    },
+
+    // 物料清單進度：任一人勾過即算完成一項
+    itemProgress(task) {
+      const items = task.items ?? [];
+      const done = items.filter(
+        (it) =>
+          this.isCheckedBy(`${task.id}-${it.id}`, "fahui") ||
+          this.isCheckedBy(`${task.id}-${it.id}`, "fawei")
+      ).length;
+      return `${done}/${items.length}`;
+    },
+
     isCheckedBy(taskId, who) {
       return !!this.checks?.[taskId]?.[who]?.checked;
     },

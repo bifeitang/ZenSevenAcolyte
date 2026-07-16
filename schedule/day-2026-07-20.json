@@ -101,7 +101,25 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "開前鐵門"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "側門"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "玻璃門"
+                }
+              ]
             }
           ]
         },
@@ -235,7 +253,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": "三問訊前",
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -263,7 +282,8 @@
               ],
               "ownerRaw": "法輝、法偉",
               "signal": "擊鼓時",
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d3-tp-07-t2",
@@ -275,7 +295,10 @@
               ],
               "ownerRaw": "法輝、法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "唱到讚佛偈 9 頁「釋迦如來」時",
+              "stepAction": "收儀軌，隨後大眾坐香"
             },
             {
               "id": "d3-tp-07-t3",
@@ -286,7 +309,10 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "悅眾止靜後",
+              "stepAction": "關燈（留佛前燈）、禪堂關門"
             },
             {
               "id": "d3-tp-07-t4",
@@ -297,7 +323,10 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "維那開靜後",
+              "stepAction": "（第一聲引磬）開燈、開門"
             }
           ]
         },
@@ -325,7 +354,8 @@
               ],
               "ownerRaw": "法輝、法偉",
               "signal": "開靜後",
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d3-tp-08-t2",
@@ -337,7 +367,8 @@
               ],
               "ownerRaw": "法輝、法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -370,7 +401,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d3-tp-09-t2",
@@ -379,7 +411,8 @@
               "owners": [],
               "ownerRaw": "",
               "signal": null,
-              "note": "監香引導"
+              "note": "監香引導",
+              "display": "step"
             },
             {
               "id": "d3-tp-09-t3",
@@ -390,7 +423,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -461,7 +495,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "悅眾止靜後",
+              "stepAction": "關燈、禪堂關門"
             },
             {
               "id": "d3-tp-11-t3",
@@ -472,7 +509,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "維那開靜後",
+              "stepAction": "開燈、開門"
             },
             {
               "id": "d3-tp-11-t4",
@@ -483,7 +523,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "行香後",
+              "stepAction": "上香 → 關燈"
             }
           ]
         },
@@ -618,7 +661,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -651,7 +695,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d3-tp-17-t2",
@@ -662,7 +707,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             },
             {
               "id": "d3-tp-17-t3",
@@ -733,7 +779,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": "7/23、7/24 14:00–17:30 小參"
+              "note": "7/23、7/24 14:00–17:30 小參",
+              "display": "step"
             }
           ]
         },
@@ -787,7 +834,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -868,7 +916,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -922,7 +971,8 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         },
@@ -1031,7 +1081,8 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step"
             }
           ]
         }
@@ -1064,7 +1115,30 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": "主法拈香爐（正常一字，保證能燒到施食）、\n拈香棒（四隻，主法三隻，施食一隻大眾）"
+              "note": "主法拈香爐（正常一字，保證能燒到施食）、\n拈香棒（四隻，主法三隻，施食一隻大眾）",
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "主法拈香爐（正常一字，保證能燒到施食）"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "拈香棒（四隻"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "主法三隻"
+                },
+                {
+                  "id": "i4",
+                  "group": null,
+                  "text": "施食一隻大眾）"
+                }
+              ]
             },
             {
               "id": "d3-tp-30-t2",
@@ -1129,7 +1203,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "就座畢",
+              "stepAction": "發儀軌 →『南無本師…』收"
             },
             {
               "id": "d3-tp-32-t2",
@@ -1141,7 +1218,8 @@
               ],
               "ownerRaw": "法偉、法輝",
               "signal": null,
-              "note": "法偉（西）、法輝（東）"
+              "note": "法偉（西）、法輝（東）",
+              "display": "step"
             },
             {
               "id": "d3-tp-32-t3",
@@ -1153,7 +1231,8 @@
               ],
               "ownerRaw": "法偉、法輝",
               "signal": null,
-              "note": "法偉（西）、法輝（東）"
+              "note": "法偉（西）、法輝（東）",
+              "display": "step"
             },
             {
               "id": "d3-tp-32-t4",
@@ -1164,7 +1243,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": "主法後7格"
+              "note": "主法後7格",
+              "display": "step",
+              "cue": "四生九有、三皈依後",
+              "stepAction": "置施食拜墊"
             },
             {
               "id": "d3-tp-32-t5",
@@ -1175,7 +1257,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "半陣鼓",
+              "stepAction": "放拈香棒"
             },
             {
               "id": "d3-tp-32-t6",
@@ -1186,7 +1271,10 @@
               ],
               "ownerRaw": "法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "施食",
+              "stepAction": "開所有大門供施食者出入"
             },
             {
               "id": "d3-tp-32-t7",
@@ -1197,7 +1285,10 @@
               ],
               "ownerRaw": "法輝",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "step",
+              "cue": "施食後",
+              "stepAction": "移開施食者拜墊"
             }
           ]
         }
@@ -1231,7 +1322,25 @@
               ],
               "ownerRaw": "法輝、法偉",
               "signal": null,
-              "note": null
+              "note": null,
+              "display": "checklist",
+              "items": [
+                {
+                  "id": "i1",
+                  "group": null,
+                  "text": "22:00–22:10 大鼓"
+                },
+                {
+                  "id": "i2",
+                  "group": null,
+                  "text": "22:10–22:30 大鐘"
+                },
+                {
+                  "id": "i3",
+                  "group": null,
+                  "text": "22:30 鐘板對接"
+                }
+              ]
             }
           ]
         },

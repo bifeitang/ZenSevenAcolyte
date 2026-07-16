@@ -470,6 +470,133 @@ input {
   align-items: flex-start;
 }
 
+/* ---------- 流程步驟（編號 + 時機高亮，不設勾選框） ---------- */
+
+.step-no {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.cue-chip {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--bell-border) 22%, transparent);
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+.task-row.is-step .task-action {
+  font-size: 14px;
+  white-space: normal; /* 折疊 HTML 模板縮排，避免 pre-line 產生空行 */
+}
+
+.step-action {
+  white-space: pre-line; /* 僅資料本身的換行生效 */
+}
+
+/* ---------- 物料清單（逐項可勾選） ---------- */
+
+.check-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.check-items-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.check-progress {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 5px 4px;
+  border: none;
+  background: none;
+  text-align: left;
+  border-radius: 8px;
+  min-height: 32px;
+}
+
+.check-item:active {
+  background: color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+.check-item-box {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+}
+
+.check-item.is-self-checked .check-item-box {
+  border-color: var(--self-color, var(--accent));
+  background: var(--self-color, var(--accent));
+}
+
+.check-item.is-other-checked:not(.is-self-checked) .check-item-box {
+  border-color: var(--other-color, var(--neutral));
+  background: color-mix(in srgb, var(--other-color, var(--neutral)) 30%, var(--card-bg));
+}
+
+.check-item.is-both-checked .check-item-box {
+  border-color: var(--self-color, var(--accent));
+  background: linear-gradient(135deg, var(--self-color, var(--accent)) 50%, var(--other-color, var(--neutral)) 50%);
+}
+
+.check-item-text {
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.check-item.is-self-checked .check-item-text,
+.check-item.is-other-checked .check-item-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--text-muted) 55%, transparent);
+}
+
+.check-item-group {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--neutral) 16%, transparent);
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
 .task-body {
   flex: 1;
   min-width: 0;

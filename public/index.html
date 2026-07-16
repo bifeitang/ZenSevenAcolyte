@@ -172,8 +172,11 @@
                     </div>
 
                     <div class="tp-tasks">
-                      <template x-for="task in timePoint.tasks" :key="task.id">
-                        <div class="task-row">
+                      <template x-for="(task, ti) in timePoint.tasks" :key="task.id">
+                        <div class="task-row" :class="{ 'is-step': task.display === 'step' }">
+                          <!-- 流程步驟：編號 + 時機高亮，不設勾選框 -->
+                          <div class="step-no" x-show="task.display === 'step'" x-text="stepNo(timePoint, ti)"></div>
+
                           <div class="task-body">
                             <div class="owner-chips" x-show="ownerChips(task).length">
                               <template x-for="chip in ownerChips(task)" :key="chip.key">
@@ -188,7 +191,40 @@
                               </template>
                             </div>
 
-                            <div class="task-action" x-text="task.action"></div>
+                            <!-- 步驟：時機 chip + 動作 -->
+                            <template x-if="task.display === 'step'">
+                              <div class="task-action">
+                                <span class="cue-chip" x-show="task.cue" x-text="task.cue"></span>
+                                <span class="step-action" x-text="task.stepAction ?? task.action"></span>
+                              </div>
+                            </template>
+
+                            <!-- 物料清單：逐項可勾選 -->
+                            <template x-if="task.display === 'checklist'">
+                              <div class="check-items">
+                                <div class="check-items-head">
+                                  <span class="check-progress" x-text="itemProgress(task)"></span>
+                                </div>
+                                <template x-for="item in task.items" :key="item.id">
+                                  <button
+                                    type="button"
+                                    class="check-item"
+                                    :class="checkboxClasses(task.id + '-' + item.id)"
+                                    @click="toggleTask(task.id + '-' + item.id)"
+                                  >
+                                    <span class="check-item-box" :style="checkboxStyle(task.id + '-' + item.id)"></span>
+                                    <span class="check-item-text">
+                                      <span class="check-item-group" x-show="item.group" x-text="item.group"></span>
+                                      <span x-text="item.text"></span>
+                                    </span>
+                                  </button>
+                                </template>
+                              </div>
+                            </template>
+
+                            <template x-if="task.display !== 'step' && task.display !== 'checklist'">
+                              <div class="task-action" x-text="task.action"></div>
+                            </template>
 
                             <div class="task-template" x-show="resolveTemplate(task)" x-text="resolveTemplate(task)"></div>
 
@@ -196,7 +232,7 @@
                             <div class="task-note" x-show="task.note" x-text="task.note"></div>
                           </div>
 
-                          <div class="task-check">
+                          <div class="task-check" x-show="task.display !== 'step' && task.display !== 'checklist'">
                             <button
                               type="button"
                               :class="checkboxClasses(task.id)"
