@@ -41,4 +41,11 @@
 // 實際的存取控制由 firestore.rules（僅允許已登入的匿名使用者讀寫指定文件）負責。
 // ────────────────────────────────────────────────────────────────
 
-export const firebaseConfig = null;
+export const firebaseConfig = {
+  apiKey: "AIzaSyB2OqjEgCzlzn6m1izWAokQpw4aNYOrVcM",
+  authDomain: "chan7-2026.firebaseapp.com",
+  projectId: "chan7-2026",
+  storageBucket: "chan7-2026.firebasestorage.app",
+  messagingSenderId: "592712854914",
+  appId: "1:592712854914:web:fef62310a852e0ffa6b39b"
+};

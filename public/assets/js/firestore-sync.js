@@ -220,13 +220,15 @@ class FirestoreBackend {
     const { doc, setDoc, serverTimestamp } = this._fs;
     const ref = doc(this._db, "retreats", this._retreatId, "checks", taskId);
     try {
-      // dot-path 欄位級更新：只寫 checkedBy.{identity}，不動對方的欄位，
-      // 也符合 firestore.rules 的 affectedKeys() 限制（['checkedBy','updatedAt']）。
+      // 注意：dot-path（"checkedBy.xxx"）只有 updateDoc 支援；setDoc+merge 會把它
+      // 當成字面欄位名，違反 firestore.rules 的 hasOnly 而被拒。改用巢狀物件——
+      // setDoc 的 merge 對巢狀 map 深度合併，只更新自己的 checkedBy.{identity}，
+      // 不會覆蓋對方的欄位，雙人仍零寫入衝突。
       await setDoc(
         ref,
         {
           taskId,
-          [`checkedBy.${identity}`]: { checked, at: Date.now() },
+          checkedBy: { [identity]: { checked, at: Date.now() } },
           updatedAt: serverTimestamp(),
         },
         { merge: true }
