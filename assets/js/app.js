@@ -48,6 +48,7 @@ function chan7App() {
     // ---------- 輔助 UI state ----------
     pinInput: "",
     pinError: false,
+    showPast: false,
     loadError: false,
     updateAvailable: false,
     settingsOpen: false,
@@ -62,15 +63,23 @@ function chan7App() {
         this.identity = null;
       }
 
+      // 排練模式：URL 帶 ?simnow=2026-07-18T14:30 可模擬任意時刻（測試提醒/收合邏輯用）
+      // 必須在 loadSchedule() 之前設定，否則「今天」的判定（自動選日）會用真實時間
+      const simnow = new URLSearchParams(location.search).get("simnow");
+      if (simnow) {
+        const parsed = new Date(simnow);
+        if (!Number.isNaN(parsed.getTime())) this._simNow = parsed;
+      }
+      this.now = this._simNow ?? new Date();
+
       await this.loadSchedule();
 
       if (this.unlocked && this.identity) {
         this.startSync();
       }
 
-      this.now = new Date();
       this._tickTimer = setInterval(() => {
-        this.now = new Date();
+        this.now = this._simNow ?? new Date();
       }, 30000);
     },
 
@@ -103,7 +112,7 @@ function chan7App() {
         }
 
         if (!this.activeDate) {
-          const today = resolve.todayDate(new Date(), this.meta?.timezone);
+          const today = resolve.todayDate(this.now, this.meta?.timezone);
           this.activeDate = this.days.some((d) => d.date === today)
             ? today
             : this.days[0]?.date ?? null;
@@ -266,6 +275,47 @@ function chan7App() {
     },
 
     // ---------- now/next 卡 ----------
+    // ---------- 已過時間點自動收合 ----------
+
+    // 目前時間點：僅在「檢視的日期＝今天」時，取文件順序中最後一個已到時間的 exact/range 時間點
+    get currentTpId() {
+      if (!this.meta || this.activeDate !== this.todayStr) return null;
+      const day = this.activeDay;
+      if (!day) return null;
+      const nowHHMM = this.nowHHMM;
+      let cur = null;
+      for (const s of day.sections) {
+        for (const tp of s.timePoints) {
+          const t = tp.time;
+          if ((t.kind === "exact" || t.kind === "range") && t.value <= nowHHMM) cur = tp.id;
+        }
+      }
+      return cur;
+    },
+
+    // 已過的時間點集合：文件順序中位於「目前時間點」之前的所有時間點
+    get pastTpIds() {
+      const curId = this.currentTpId;
+      const ids = new Set();
+      if (!curId) return ids;
+      for (const s of this.activeDay.sections) {
+        for (const tp of s.timePoints) {
+          if (tp.id === curId) return ids;
+          ids.add(tp.id);
+        }
+      }
+      return ids;
+    },
+
+    isPastTp(tp) {
+      return this.pastTpIds.has(tp.id);
+    },
+
+    sectionVisible(section) {
+      if (this.showPast) return true;
+      return section.timePoints.some((tp) => !this.pastTpIds.has(tp.id));
+    },
+
     get todayStr() {
       if (!this.meta) return null;
       return resolve.todayDate(this.now, this.meta.timezone);

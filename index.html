@@ -156,14 +156,32 @@
 
           <!-- 時間軸 -->
           <main class="timeline">
+            <!-- 已過時間點收合列：僅當日且有已過項目時顯示 -->
+            <button
+              type="button"
+              class="past-toggle"
+              x-show="pastTpIds.size > 0"
+              x-cloak
+              @click="showPast = !showPast"
+              x-text="showPast
+                ? '收合已過的時間點 ▲'
+                : '已自動收合 ' + pastTpIds.size + ' 個已過時間點 · 點此展開 ▼'"
+            ></button>
+
             <template x-for="section in activeSections" :key="section.id">
-              <div class="section-block">
+              <div class="section-block" x-show="sectionVisible(section)">
                 <div class="section-title" x-text="'【' + section.title + '】'"></div>
 
                 <template x-for="timePoint in section.timePoints" :key="timePoint.id">
                   <div
                     class="tp-card"
-                    :class="{ 'is-bell': timePoint.isBellRow, 'has-steps': timePoint.tasks.some(t => t.display === 'step') }"
+                    x-show="showPast || !isPastTp(timePoint)"
+                    :class="{
+                      'is-bell': timePoint.isBellRow,
+                      'has-steps': timePoint.tasks.some(t => t.display === 'step'),
+                      'is-current': timePoint.id === currentTpId,
+                      'is-past': isPastTp(timePoint),
+                    }"
                   >
                     <div class="tp-time">
                       <div

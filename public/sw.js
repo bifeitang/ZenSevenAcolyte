@@ -1,7 +1,7 @@
 // sw.js — DESIGN.md 3.7
 // 路徑一律相對 self.location 解析，支援 GitHub Pages 子路徑部署。
 
-const CACHE_NAME = "chan7-20260716T1220000500";
+const CACHE_NAME = "chan7-20260716T1250000500";
 const BASE = new URL(".", self.location).pathname; // 例如 "/chan7-app/"
 
 const PRECACHE_URLS = [
