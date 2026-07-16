@@ -117,20 +117,9 @@
               <button type="button" @click="loadSchedule()">重試</button>
             </div>
 
-            <nav class="day-tabs" aria-label="日期選擇">
-              <template x-for="day in days" :key="day.date">
-                <button
-                  type="button"
-                  class="day-tab"
-                  :class="{ active: day.date === activeDate }"
-                  @click="setActiveDate(day.date)"
-                  x-text="shortDateLabel(day)"
-                ></button>
-              </template>
-            </nav>
           </header>
 
-          <!-- now/next 卡：頂部常駐 -->
+          <!-- now/next 卡：置於最上方 -->
           <section class="nownext-card" aria-label="下一時間點倒數">
             <template x-if="nextInfo">
               <div>
@@ -151,6 +140,19 @@
               <div class="nownext-empty">目前沒有即將到來的時間點</div>
             </template>
           </section>
+
+          <!-- 日期選擇：位於 now/next 卡之下 -->
+          <nav class="day-tabs" aria-label="日期選擇">
+            <template x-for="day in days" :key="day.date">
+              <button
+                type="button"
+                class="day-tab"
+                :class="{ active: day.date === activeDate }"
+                @click="setActiveDate(day.date)"
+                x-text="shortDateLabel(day)"
+              ></button>
+            </template>
+          </nav>
 
           <!-- 時間軸 -->
           <main class="timeline">

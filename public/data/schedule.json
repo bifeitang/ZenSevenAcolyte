@@ -2,39 +2,39 @@
   "meta": {
     "retreatId": "chan7-2026",
     "timezone": "America/Chicago",
-    "scheduleVersion": "2026-07-16T09:26:29-05:00",
+    "scheduleVersion": "2026-07-16T10:05:00-05:00",
     "owners": {
       "fahui": {
         "displayName": "法輝",
-        "color": "#3b5bdb"
+        "color": "#4a5fa5"
       },
       "fawei": {
         "displayName": "法偉",
-        "color": "#e8590c"
+        "color": "#c15f3c"
       },
       "attendant": {
         "displayName": "侍者",
-        "color": "#868e96"
+        "color": "#8a8a83"
       },
       "server": {
         "displayName": "行堂",
-        "color": "#868e96"
+        "color": "#8a8a83"
       },
       "duty": {
         "displayName": "監香",
-        "color": "#868e96"
+        "color": "#8a8a83"
       },
       "volunteer": {
         "displayName": "義工",
-        "color": "#868e96"
+        "color": "#8a8a83"
       },
       "all": {
         "displayName": "全體",
-        "color": "#868e96"
+        "color": "#8a8a83"
       },
       "other": {
         "displayName": "其他",
-        "color": "#868e96"
+        "color": "#8a8a83"
       }
     },
     "defaultLeadMinutes": 7,
@@ -5242,8 +5242,7 @@
                   "action": "香爐鋪香先鋪好（隔天早課用）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝/法偉",
                   "signal": null,
@@ -5298,7 +5297,7 @@
                   "action": "上供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5367,7 +5366,7 @@
                   "action": "調整燈光與空調（禪堂溫度維持 75–76°F）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5416,7 +5415,7 @@
                   "action": "準備手提音響＋mic（早齋過堂念佛號用）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5470,8 +5469,7 @@
                   "action": "開始發放儀軌（先數好份數）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "擊鼓時",
@@ -5482,8 +5480,7 @@
                   "action": "唱到讚佛偈 9 頁「釋迦如來」時收儀軌，隨後大眾坐香",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -5494,7 +5491,7 @@
                   "action": "悅眾止靜後關燈（留佛前燈）、禪堂關門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5505,7 +5502,7 @@
                   "action": "維那開靜後（第一聲引磬）開燈、開門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5532,8 +5529,7 @@
                   "action": "燈光全亮、大眾放腿、發放儀軌（不用等大眾站起）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "開靜後",
@@ -5544,8 +5540,7 @@
                   "action": "韋馱讚 13 頁「南無普眼菩薩摩訶薩」唱完收儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -5578,7 +5573,7 @@
                   "action": "開中央大門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5859,7 +5854,7 @@
                   "action": "開中央大門；男眾先、女眾後兩路進齋堂",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5881,7 +5876,7 @@
                   "action": "打掃新禪堂地板、整理坐墊、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5914,7 +5909,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -5941,7 +5936,7 @@
                   "action": "固定動作（37 分開靜、放腿 3 分、行香 5 分）",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -5968,7 +5963,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -5995,7 +5990,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6022,7 +6017,7 @@
                   "action": "收供水時段；該支香結束休息時（約 16:00）收禪堂供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6049,7 +6044,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -6076,7 +6071,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6103,7 +6098,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -6130,7 +6125,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6157,7 +6152,7 @@
                   "action": "開中央大門；打掃新禪堂地板",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6168,7 +6163,7 @@
                   "action": "收供水（含乳海、淨瓶）、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6310,7 +6305,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -6348,7 +6343,6 @@
                   "action": "止靜關燈、開靜開燈、開中間大門、開帘子",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -6360,7 +6354,6 @@
                   "action": "發儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -6394,7 +6387,7 @@
                   "action": "施食 ---> 開所有大門供施食者出入",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6438,8 +6431,7 @@
                   "action": "22:00–22:10 大鼓；22:10–22:30 大鐘；22:30 鐘板對接",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -6467,7 +6459,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -6480,7 +6471,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -6493,7 +6483,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -6506,7 +6495,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -6550,8 +6538,7 @@
                   "action": "香爐鋪香先鋪好（隔天早課用）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝/法偉",
                   "signal": null,
@@ -6606,7 +6593,7 @@
                   "action": "上供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6675,7 +6662,7 @@
                   "action": "調整燈光與空調（禪堂溫度維持 75–76°F）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6724,7 +6711,7 @@
                   "action": "準備手提音響＋mic（早齋過堂念佛號用）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6778,8 +6765,7 @@
                   "action": "開始發放儀軌（先數好份數）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "擊鼓時",
@@ -6790,8 +6776,7 @@
                   "action": "唱到讚佛偈 9 頁「釋迦如來」時收儀軌，隨後大眾坐香",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -6802,7 +6787,7 @@
                   "action": "悅眾止靜後關燈（留佛前燈）、禪堂關門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6813,7 +6798,7 @@
                   "action": "維那開靜後（第一聲引磬）開燈、開門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -6840,8 +6825,7 @@
                   "action": "燈光全亮、大眾放腿、發放儀軌（不用等大眾站起）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "開靜後",
@@ -6852,8 +6836,7 @@
                   "action": "韋馱讚 13 頁「南無普眼菩薩摩訶薩」唱完收儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -6886,7 +6869,7 @@
                   "action": "開中央大門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7167,7 +7150,7 @@
                   "action": "開中央大門；男眾先、女眾後兩路進齋堂",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7189,7 +7172,7 @@
                   "action": "打掃新禪堂地板、整理坐墊、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7222,7 +7205,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -7249,7 +7232,7 @@
                   "action": "固定動作（37 分開靜、放腿 3 分、行香 5 分）",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7276,7 +7259,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -7303,7 +7286,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7330,7 +7313,7 @@
                   "action": "收供水時段；該支香結束休息時（約 16:00）收禪堂供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7357,7 +7340,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -7384,7 +7367,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7411,7 +7394,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -7438,7 +7421,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7465,7 +7448,7 @@
                   "action": "開中央大門；打掃新禪堂地板",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7476,7 +7459,7 @@
                   "action": "收供水（含乳海、淨瓶）、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7618,7 +7601,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -7656,7 +7639,6 @@
                   "action": "止靜關燈、開靜開燈、開中間大門、開帘子",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -7668,7 +7650,6 @@
                   "action": "發儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -7702,7 +7683,7 @@
                   "action": "施食 ---> 開所有大門供施食者出入",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7746,8 +7727,7 @@
                   "action": "22:00–22:10 大鼓；22:10–22:30 大鐘；22:30 鐘板對接",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -7775,7 +7755,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -7788,7 +7767,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -7801,7 +7779,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -7814,7 +7791,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -7858,8 +7834,7 @@
                   "action": "香爐鋪香先鋪好（隔天早課用）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝/法偉",
                   "signal": null,
@@ -7914,7 +7889,7 @@
                   "action": "上供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -7983,7 +7958,7 @@
                   "action": "調整燈光與空調（禪堂溫度維持 75–76°F）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8032,7 +8007,7 @@
                   "action": "準備手提音響＋mic（早齋過堂念佛號用）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8086,8 +8061,7 @@
                   "action": "開始發放儀軌（先數好份數）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "擊鼓時",
@@ -8098,8 +8072,7 @@
                   "action": "唱到讚佛偈 9 頁「釋迦如來」時收儀軌，隨後大眾坐香",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -8110,7 +8083,7 @@
                   "action": "悅眾止靜後關燈（留佛前燈）、禪堂關門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8121,7 +8094,7 @@
                   "action": "維那開靜後（第一聲引磬）開燈、開門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8148,8 +8121,7 @@
                   "action": "燈光全亮、大眾放腿、發放儀軌（不用等大眾站起）",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": "開靜後",
@@ -8160,8 +8132,7 @@
                   "action": "韋馱讚 13 頁「南無普眼菩薩摩訶薩」唱完收儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -8194,7 +8165,7 @@
                   "action": "開中央大門",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8475,7 +8446,7 @@
                   "action": "開中央大門；男眾先、女眾後兩路進齋堂",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8497,7 +8468,7 @@
                   "action": "打掃新禪堂地板、整理坐墊、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8530,7 +8501,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -8557,7 +8528,7 @@
                   "action": "固定動作（37 分開靜、放腿 3 分、行香 5 分）",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8584,7 +8555,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -8611,7 +8582,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8638,7 +8609,7 @@
                   "action": "收供水時段；該支香結束休息時（約 16:00）收禪堂供水",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8665,7 +8636,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -8692,7 +8663,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8719,7 +8690,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -8746,7 +8717,7 @@
                   "action": "同固定動作",
                   "templateRef": "fixed:sitting-cycle",
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8773,7 +8744,7 @@
                   "action": "開中央大門；打掃新禪堂地板",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8784,7 +8755,7 @@
                   "action": "收供水（含乳海、淨瓶）、平灰",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -8926,7 +8897,7 @@
                   "action": "敲地鐘（該支香前 3 分）",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": "前 3 分",
@@ -8964,7 +8935,6 @@
                   "action": "止靜關燈、開靜開燈、開中間大門、開帘子",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -8976,7 +8946,6 @@
                   "action": "發儀軌",
                   "templateRef": null,
                   "owners": [
-                    "fawei",
                     "fahui"
                   ],
                   "ownerRaw": "法偉、法輝",
@@ -9010,7 +8979,7 @@
                   "action": "施食 ---> 開所有大門供施食者出入",
                   "templateRef": null,
                   "owners": [
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法偉",
                   "signal": null,
@@ -9054,8 +9023,7 @@
                   "action": "22:00–22:10 大鼓；22:10–22:30 大鐘；22:30 鐘板對接",
                   "templateRef": null,
                   "owners": [
-                    "fahui",
-                    "fawei"
+                    "fahui"
                   ],
                   "ownerRaw": "法輝、法偉",
                   "signal": null,
@@ -9083,7 +9051,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -9096,7 +9063,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -9109,7 +9075,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",
@@ -9122,7 +9087,6 @@
                   "templateRef": null,
                   "owners": [
                     "fahui",
-                    "fawei",
                     "other"
                   ],
                   "ownerRaw": "法輝、法偉、法然",

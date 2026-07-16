@@ -1,58 +1,66 @@
-/* assets/css/app.css — DESIGN.md 第 4 節視覺規格 */
+/* assets/css/app.css — Anthropic 風格：象牙暖底、赤陶強調、襯線標題 */
 
 :root {
-  --fahui: #3b5bdb;
-  --fawei: #e8590c;
-  --neutral: #868e96;
-  --bell-bg: #fff9db;
-  --bell-border: #fab005;
+  --fahui: #4a5fa5;
+  --fawei: #c15f3c;
+  --neutral: #8a8a83;
+  --bell-bg: #f7edd6;
+  --bell-border: #d9a441;
 
-  --bg: #f4f5f7;
-  --card-bg: #ffffff;
-  --text: #1c1e21;
-  --text-muted: #6b7078;
-  --border: #e3e5e9;
-  --accent: #3b5bdb;
-  --danger: #e03131;
+  --bg: #f0eee6;
+  --card-bg: #fcfbf8;
+  --text: #1f1e1d;
+  --text-muted: #75746e;
+  --border: #e3e0d5;
+  --accent: #c15f3c;
+  --danger: #b0442e;
+
+  --font-serif: "Tiempos Text", ui-serif, Georgia, "Noto Serif TC", "Songti TC", serif;
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a1b1e;
-    --card-bg: #25262b;
-    --text: #e9ecef;
-    --text-muted: #a6a9b0;
-    --border: #34363c;
-    --accent: #6f8bff;
-    --bell-bg: #3a3418;
-    --bell-border: #d29b1f;
+    --bg: #262624;
+    --card-bg: #30302e;
+    --text: #eeece6;
+    --text-muted: #a9a69e;
+    --border: #3e3d38;
+    --accent: #d97757;
+    --bell-bg: #3a3220;
+    --bell-border: #b08430;
+    --fahui: #7d90cf;
+    --fawei: #d97757;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #1a1b1e;
-  --card-bg: #25262b;
-  --text: #e9ecef;
-  --text-muted: #a6a9b0;
-  --border: #34363c;
-  --accent: #6f8bff;
-  --bell-bg: #3a3418;
-  --bell-border: #d29b1f;
+  --bg: #262624;
+  --card-bg: #30302e;
+  --text: #eeece6;
+  --text-muted: #a9a69e;
+  --border: #3e3d38;
+  --accent: #d97757;
+  --bell-bg: #3a3220;
+  --bell-border: #b08430;
+  --fahui: #7d90cf;
+  --fawei: #d97757;
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --bg: #f4f5f7;
-  --card-bg: #ffffff;
-  --text: #1c1e21;
-  --text-muted: #6b7078;
-  --border: #e3e5e9;
-  --accent: #3b5bdb;
-  --bell-bg: #fff9db;
-  --bell-border: #fab005;
+  --bg: #f0eee6;
+  --card-bg: #fcfbf8;
+  --text: #1f1e1d;
+  --text-muted: #75746e;
+  --border: #e3e0d5;
+  --accent: #c15f3c;
+  --bell-bg: #f7edd6;
+  --bell-border: #d9a441;
+  --fahui: #4a5fa5;
+  --fawei: #c15f3c;
   color-scheme: light;
 }
 
@@ -109,8 +117,10 @@ input {
 }
 
 .gate-title {
-  font-size: 22px;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .gate-subtitle {
@@ -213,8 +223,10 @@ input {
 }
 
 .app-title {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .sync-status {
@@ -233,10 +245,10 @@ input {
   flex: none;
 }
 
-.sync-dot.synced { background: #2f9e44; }
-.sync-dot.pending { background: #f2b705; }
-.sync-dot.offline { background: #e03131; }
-.sync-dot.local { background: #adb5bd; border: 1px solid var(--border); }
+.sync-dot.synced { background: #5e8c61; }
+.sync-dot.pending { background: #c9a227; }
+.sync-dot.offline { background: #b0442e; }
+.sync-dot.local { background: #a8a69f; border: 1px solid var(--border); }
 
 .settings-btn {
   border: none;
@@ -289,12 +301,12 @@ input {
   font-weight: 600;
 }
 
-/* 日頁籤水平捲動 pill */
+/* 日頁籤水平捲動 pill（位於 now/next 卡之下） */
 .day-tabs {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 4px 0 10px;
+  padding: 0 16px 12px;
   scrollbar-width: none;
 }
 
@@ -320,30 +332,32 @@ input {
   color: #fff;
 }
 
-/* now/next 卡：頂部常駐 */
+/* now/next 卡：置於最上方，赤陶色重點卡 */
 .nownext-card {
-  margin: 0 16px 12px;
-  padding: 16px 18px;
-  border-radius: 16px;
+  margin: 10px 16px 12px;
+  padding: 18px 20px;
+  border-radius: 18px;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(31, 30, 29, 0.05);
 }
 
 .nownext-label {
   font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .nownext-countdown {
+  font-family: var(--font-serif);
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
-  line-height: 1.1;
-  margin: 2px 0;
+  line-height: 1.15;
+  margin: 4px 0 2px;
 }
 
 .nownext-meta {
@@ -388,13 +402,15 @@ input {
 
 .section-title {
   position: sticky;
-  top: 88px;
+  top: 44px;
   z-index: 10;
   background: var(--bg);
   padding: 10px 2px 8px;
-  font-size: 15px;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
   color: var(--text);
+  letter-spacing: 0.02em;
 }
 
 .tp-card {
@@ -599,7 +615,9 @@ input {
 }
 
 .drawer h2 {
-  font-size: 17px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
   margin: 0;
 }
 

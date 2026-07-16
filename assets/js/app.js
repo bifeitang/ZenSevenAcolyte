@@ -287,7 +287,9 @@ function chan7App() {
       const totalMinutes = Math.floor(totalSeconds / 60);
       const h = Math.floor(totalMinutes / 60);
       const mm = totalMinutes % 60;
-      return `${h}:${String(mm).padStart(2, "0")}`;
+      if (h < 24) return `${h} 時 ${mm} 分`;
+      const d = Math.floor(h / 24);
+      return `${d} 天 ${h % 24} 時 ${mm} 分`;
     },
 
     nextTaskSummaries() {

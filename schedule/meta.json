@@ -1,39 +1,39 @@
 {
   "retreatId": "chan7-2026",
   "timezone": "America/Chicago",
-  "scheduleVersion": "2026-07-16T09:26:29-05:00",
+  "scheduleVersion": "2026-07-16T10:05:00-05:00",
   "owners": {
     "fahui": {
       "displayName": "法輝",
-      "color": "#3b5bdb"
+      "color": "#4a5fa5"
     },
     "fawei": {
       "displayName": "法偉",
-      "color": "#e8590c"
+      "color": "#c15f3c"
     },
     "attendant": {
       "displayName": "侍者",
-      "color": "#868e96"
+      "color": "#8a8a83"
     },
     "server": {
       "displayName": "行堂",
-      "color": "#868e96"
+      "color": "#8a8a83"
     },
     "duty": {
       "displayName": "監香",
-      "color": "#868e96"
+      "color": "#8a8a83"
     },
     "volunteer": {
       "displayName": "義工",
-      "color": "#868e96"
+      "color": "#8a8a83"
     },
     "all": {
       "displayName": "全體",
-      "color": "#868e96"
+      "color": "#8a8a83"
     },
     "other": {
       "displayName": "其他",
-      "color": "#868e96"
+      "color": "#8a8a83"
     }
   },
   "defaultLeadMinutes": 7,
